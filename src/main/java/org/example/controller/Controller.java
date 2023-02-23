@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Controller {
+    private Customer currentCustomer;
     private ObservableList<Customer> registeredCustomers = FXCollections.observableArrayList();
     public Controller(){
         // Dummy data
