@@ -3,16 +3,22 @@ package org.example.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.model.Customer;
+import org.example.model.clothes.Pants;
 import org.example.model.clothes.Size;
+import org.example.patterns.builder.PantsBuilder;
 import org.example.view.View;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Controller {
+public class Controller implements PropertyChangeListener {
     private Customer currentCustomer;
+
 //    private View myViewer = new View();
     private int customerId = 0;
 //    private ObservableList<Customer> registeredCustomers = FXCollections.observableArrayList();
@@ -40,6 +46,19 @@ public class Controller {
 /*    public void setMyViewer(View myViewer) {
         this.myViewer = myViewer;
     }*/
+    public void customerOrder(String clothes){
+        switch(clothes){
+            case "pants":
+                PantsBuilder pantsBuilder = new PantsBuilder(new Pants());
+                break;
+            case "tshirt":
+                break;
+            case "skirt":
+                break;
+            default:
+                break;
+        }
+    }
 
     public Customer getCurrentCustomer() {
         return currentCustomer;
@@ -48,5 +67,10 @@ public class Controller {
     public void setCurrentCustomer(Customer currentCustomer) {
         currentCustomer.setId(customerId++);
         this.currentCustomer = currentCustomer;
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+
     }
 }

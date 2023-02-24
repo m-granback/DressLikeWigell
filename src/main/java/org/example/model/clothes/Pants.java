@@ -1,5 +1,8 @@
 package org.example.model.clothes;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 public class Pants {
     private int id;
     private String name;
@@ -10,8 +13,11 @@ public class Pants {
     private String color;
     private String fit;
     private String length;
+    private PropertyChangeSupport propertyChangeSupport;
 
     public Pants() {
+        propertyChangeSupport = new PropertyChangeSupport(this);
+        propertyChangeSupport.firePropertyChange("Pants are being prepared",null,null);
     }
 
     public Pants(int id, String name, String type, int size, double prize, String material, String color, String fit, String length) {
@@ -26,6 +32,9 @@ public class Pants {
         this.length = length;
     }
 
+    public void addPropertyChangeListener(PropertyChangeListener listener){
+        propertyChangeSupport.addPropertyChangeListener(listener);
+    }
     public int getId() {
         return id;
     }

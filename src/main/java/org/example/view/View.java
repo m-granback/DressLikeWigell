@@ -16,7 +16,7 @@ import org.example.model.Customer;
 public class View extends Application {
     private Controller myController = new Controller();
     private final double WIDTH = 700;
-    private final double HEIGHT = 400;
+    private final double HEIGHT = 500;
     private AnchorPane content;
     private Pane loginPane, leftPane, rightPane, pantsPane, tShirtsPane, skirtsPane;
 //    private TableView<Customer> customerListView;
@@ -84,6 +84,9 @@ public class View extends Application {
         Button pantsOrderButton = new Button("Order");
         pantsOrderButton.setLayoutX(250);
         pantsOrderButton.setLayoutY(250);
+        pantsOrderButton.setOnAction(e->{
+
+        });
 //        TableColumn<Customer, String> namesColumn = new TableColumn<>("Customer");
         RadioButton pantsRadioButton = new RadioButton("Pants");
         RadioButton tShirtsRadioButton = new RadioButton("TShirts");
@@ -129,10 +132,10 @@ public class View extends Application {
         VBox.setMargin(tShirtsRadioButton, new Insets(0,0,0,50));
         VBox.setMargin(skirtsRadioButton, new Insets(0,0,0,50));
         newUserLabel.setLayoutX((WIDTH/2)-50);
-        newUserLabel.setLayoutY(HEIGHT/4);
+        newUserLabel.setLayoutY(HEIGHT/5);
         newUserLabel.setFont(new Font("Arial", 16));
         newUserSeparator.setLayoutX((WIDTH/2)-50);
-        newUserSeparator.setLayoutY((HEIGHT/4)+20);
+        newUserSeparator.setLayoutY((HEIGHT/4)+5);
         newUserSeparator.setPrefWidth(200);
         nameLabel.setLayoutX((WIDTH/2)-50);
         nameLabel.setLayoutY((HEIGHT/4)+20);
