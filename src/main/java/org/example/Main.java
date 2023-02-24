@@ -31,7 +31,7 @@ public class Main {
         String choice = scanner.nextLine();
         switch(choice){
             case "1":
-                PantsBuilder pantsBuilder = new PantsBuilder(new Pants()).addMaterial("sd").setFit("asd");
+                Pants pants = new PantsBuilder(new Pants()).addMaterial("sd").setFit("asd").build();
                 System.out.println("Pants");
                 break;
             case "2":
