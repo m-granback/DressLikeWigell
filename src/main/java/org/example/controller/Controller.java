@@ -29,13 +29,13 @@ public class Controller implements PropertyChangeListener {
 //        Customer customer2 = new Customer(2,"Robert","Timråvägen 56 85788 Timrå", "robert@aol.com");
 //        registeredCustomers.add(customer1);
 //        registeredCustomers.add(customer2);
-        Size size = Size.medium;
+/*        Size size = Size.medium;
         if(size == Size.medium)
             System.out.println("hej");
         List<Size> availableSizes = Arrays.asList(Size.values());
         for(Size s : availableSizes){
             System.out.println(s);
-        }
+        }*/
     }
 
 /*    public ObservableList<Customer> getRegisteredCustomers() {

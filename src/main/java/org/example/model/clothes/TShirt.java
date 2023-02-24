@@ -7,13 +7,13 @@ public class TShirt {
     private double prize;
     private String material;
     private String color;
-    private boolean sleeves;
-    private boolean neck;
+    private String sleeves;
+    private String neck;
 
     public TShirt() {
     }
 
-    public TShirt(int id, String name, String size, double prize, String material, String color, boolean sleeves, boolean neck) {
+    public TShirt(int id, String name, String size, double prize, String material, String color, String sleeves, String neck) {
         this.id = id;
         this.name = name;
         this.size = size;
@@ -72,19 +72,20 @@ public class TShirt {
         this.color = color;
     }
 
-    public boolean isSleeves() {
-        return sleeves;
-    }
 
-    public void setSleeves(boolean sleeves) {
+    public void setSleeves(String sleeves) {
         this.sleeves = sleeves;
     }
 
-    public boolean isNeck() {
+    public String getSleeves() {
+        return sleeves;
+    }
+
+    public String getNeck() {
         return neck;
     }
 
-    public void setNeck(boolean neck) {
+    public void setNeck(String neck) {
         this.neck = neck;
     }
 }
