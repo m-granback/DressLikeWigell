@@ -5,7 +5,7 @@ import java.beans.PropertyChangeSupport;
 
 public class Pants {
     private int id;
-    private String name;
+    private String name = "Pants";
     private String type;
     private int size;
     private double prize;

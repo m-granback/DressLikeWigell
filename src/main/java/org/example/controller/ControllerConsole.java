@@ -1,21 +1,24 @@
 package org.example.controller;
 
 import org.example.model.Customer;
-import org.example.model.clothes.Pants;
 import org.example.model.clothes.Skirt;
 import org.example.model.clothes.TShirt;
-import org.example.patterns.builder.PantsBuilder;
 import org.example.patterns.builder.SkirtsBuilder;
 import org.example.patterns.builder.TShirtBuilder;
+import org.example.patterns.command.ColorCommand;
+import org.example.patterns.command.FactorizePipeline;
+import org.example.patterns.observer.CEOObserver;
 
 import java.util.Scanner;
 
 public class ControllerConsole {
+
+    private CEOObserver ceoObserver = new CEOObserver();
     private Customer customer;
     public ControllerConsole() {
 
     }
-    public void chooseGarment(){
+    private void chooseGarment(){
         Scanner scanner = new Scanner(System.in);
         System.out.print(
                 "Please select garment\n" +
@@ -97,6 +100,13 @@ public class ControllerConsole {
     }
 
     private void makeSkirt(String size, String material, String color, String waistline, String pattern) {
+        // All information necessary for the garment is gathered
+        SkirtsBuilder skirtsBuilder = new SkirtsBuilder();
+        Skirt uniqueSkirt = skirtsBuilder.setMaterial(material).setWaistline(waistline).setPattern(pattern).build();
+        FactorizePipeline factorizePipeline = new FactorizePipeline();
+        factorizePipeline.addFactorizeCommand(new ColorCommand(color));
+        uniqueSkirt = factorizePipeline.performAction(uniqueSkirt);
+        //--------------------------------------------------------------------------------------------------> Plagg klart
     }
 
 
@@ -121,7 +131,7 @@ public class ControllerConsole {
     }
 
 
-    public void createCustomer(){
+    public void newCustomerOrder(){
         String fullname = "";
         Scanner scanner = new Scanner(System.in);
         System.out.print("Wigells clothing factory\nNew user\nEnter your full name: ");
@@ -137,5 +147,6 @@ public class ControllerConsole {
         System.out.print("Your email: ");
         String email = scanner.nextLine();
         customer = new Customer(fullname, address, email);
+        chooseGarment();
     }
 }

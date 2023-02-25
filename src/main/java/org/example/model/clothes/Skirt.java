@@ -1,19 +1,28 @@
 package org.example.model.clothes;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 public class Skirt {
     private int id;
-    private String name;
+    private String name = "Skirt";
     private String size;
     private double prize;
     private String material;
     private String color;
-    private int waistline;
+    private String waistline;
     private String pattern;
+    private boolean done;
+    private PropertyChangeSupport propertyChangeSupport;
 
     public Skirt() {
+        this.propertyChangeSupport = new PropertyChangeSupport(this); // är det här han menar att man behöver en boolean ?
+    }
+    public void addPropertyChangeListener(PropertyChangeListener listener){
+        this.propertyChangeSupport.addPropertyChangeListener(listener);
     }
 
-    public Skirt(int id, String name, String size, double prize, String material, String color, int waistline, String pattern) {
+    public Skirt(int id, String name, String size, double prize, String material, String color, String waistline, String pattern) {
         this.id = id;
         this.name = name;
         this.size = size;
@@ -72,11 +81,11 @@ public class Skirt {
         this.color = color;
     }
 
-    public int getWaistline() {
+    public String getWaistline() {
         return waistline;
     }
 
-    public void setWaistline(int waistline) {
+    public void setWaistline(String waistline) {
         this.waistline = waistline;
     }
 
@@ -86,5 +95,14 @@ public class Skirt {
 
     public void setPattern(String pattern) {
         this.pattern = pattern;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.propertyChangeSupport.firePropertyChange("done", -1 ,0);
+        this.done = done;
     }
 }
