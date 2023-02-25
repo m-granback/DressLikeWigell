@@ -1,12 +1,15 @@
 package org.example.controller;
 
 import org.example.model.Customer;
+import org.example.model.clothes.Pants;
 import org.example.model.clothes.Skirt;
 import org.example.model.clothes.TShirt;
+import org.example.patterns.builder.PantsBuilder;
 import org.example.patterns.builder.SkirtsBuilder;
 import org.example.patterns.builder.TShirtBuilder;
 import org.example.patterns.command.ColorCommand;
 import org.example.patterns.command.FactorizePipeline;
+import org.example.patterns.command.LengthCutCommand;
 import org.example.patterns.observer.CEOObserver;
 
 import java.util.Scanner;
@@ -81,7 +84,10 @@ public class ControllerConsole {
 
     private void makeTShirt(String size, String material, String color, String sleeves, String neck) {
         TShirtBuilder tShirtBuilder = new TShirtBuilder();
-        TShirt tShirt = tShirtBuilder.setMaterial(material).setSleeves(sleeves).setNeck(neck).build();
+        TShirt uniqueTShirt = tShirtBuilder.setSize(size).setMaterial(material).setSleeves(sleeves).setNeck(neck).build();
+        FactorizePipeline factorizePipeline = new FactorizePipeline();
+        factorizePipeline.addFactorizeCommand(new ColorCommand(color));
+        uniqueTShirt = factorizePipeline.performAction(uniqueTShirt);
     }
 
     private void skirtSpecifics(String size, String material, String color) {
@@ -106,7 +112,7 @@ public class ControllerConsole {
     private void makeSkirt(String size, String material, String color, String waistline, String pattern) {
         // All information necessary for the garment is gathered
         SkirtsBuilder skirtsBuilder = new SkirtsBuilder();
-        Skirt uniqueSkirt = skirtsBuilder.setMaterial(material).setWaistline(waistline).setPattern(pattern).build();
+        Skirt uniqueSkirt = skirtsBuilder.setSize(size).setMaterial(material).setWaistline(waistline).setPattern(pattern).build();
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         factorizePipeline.addFactorizeCommand(new ColorCommand(color));
         uniqueSkirt = factorizePipeline.performAction(uniqueSkirt);
@@ -130,10 +136,22 @@ public class ControllerConsole {
                         "[c] Extra long (folded up)" +
                         "Choice: ");
         String length = scanner.nextLine();
-        makePants(size, material, color, fit, length);
+        System.out.println(
+                "Please select type\n" +
+                "[a] Bootcut" +
+                "[b] Wide-leg" +
+                "[c] Straight-leg");
+        String type = scanner.nextLine();
+        makePants(size, material, color, type, fit, length);
     }
 
-    private void makePants(String size, String material, String color, String fit, String length) {
+    private void makePants(String size, String material, String color, String type, String fit, String length) {
+        PantsBuilder pantsBuilder = new PantsBuilder();
+        Pants uniquePants = pantsBuilder.setSize(size).setMaterial(material).setType(type).setFit(fit).build();
+        FactorizePipeline factorizePipeline = new FactorizePipeline();
+        factorizePipeline.addFactorizeCommand(new LengthCutCommand(length));
+        factorizePipeline.addFactorizeCommand(new ColorCommand(color));
+        uniquePants = factorizePipeline.performAction(uniquePants);
     }
 
 

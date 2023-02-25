@@ -6,16 +6,8 @@ public class TShirtBuilder {
     private TShirt tShirt;
     public TShirtBuilder() {
     }
-    public TShirtBuilder setSize(String size){
-        tShirt.setSize(size);
-        return this;
-    }
     public TShirtBuilder setMaterial(String material){
         tShirt.setMaterial(material);
-        return this;
-    }
-    public TShirtBuilder setColor(String color){
-        tShirt.setColor(color);
         return this;
     }
     public TShirtBuilder setSleeves(String sleeves){
@@ -24,6 +16,10 @@ public class TShirtBuilder {
     }
     public TShirtBuilder setNeck(String neck){
         tShirt.setNeck(neck);
+        return this;
+    }
+    public TShirtBuilder setSize(String size){
+        tShirt.setSize(size);
         return this;
     }
     public TShirt build(){

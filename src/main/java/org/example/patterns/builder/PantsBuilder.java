@@ -14,14 +14,20 @@ public class PantsBuilder {
         this.pants = pants;
         propertyChangeSupport = new PropertyChangeSupport(this);
     }
-    public PantsBuilder addMaterial(String material){
-        pants.setMaterial("sdasdsd");
+    public PantsBuilder setSize(String size){
+        pants.setSize(size);
+        return this;
+    }
+    public PantsBuilder setMaterial(String material){
+        pants.setMaterial(material);
         return this;
     }
     public PantsBuilder setType(String type){
+        pants.setType(type);
         return this;
     }
     public PantsBuilder setFit(String fit){
+        pants.setFit(fit);
         return this;
     }
     public Pants build(){

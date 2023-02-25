@@ -16,6 +16,10 @@ public class SkirtsBuilder {
         skirt.setPattern(pattern);
         return this;
     }
+    public SkirtsBuilder setSize(String size){
+        skirt.setSize(size);
+        return this;
+    }
     public Skirt build(){
         return skirt;
     }
