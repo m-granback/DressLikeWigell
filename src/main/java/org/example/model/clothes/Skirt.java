@@ -6,8 +6,8 @@ import java.beans.PropertyChangeSupport;
 public class Skirt {
     private int id;
     private String name = "Skirt";
-    private String size;
-    private double prize;
+    private String size = "One size fits all";
+    private double price = 39.99d;
     private String material;
     private String color;
     private String waistline;
@@ -22,11 +22,11 @@ public class Skirt {
         this.propertyChangeSupport.addPropertyChangeListener(listener);
     }
 
-    public Skirt(int id, String name, String size, double prize, String material, String color, String waistline, String pattern) {
+    public Skirt(int id, String name, String size, double price, String material, String color, String waistline, String pattern) {
         this.id = id;
         this.name = name;
         this.size = size;
-        this.prize = prize;
+        this.price = price;
         this.material = material;
         this.color = color;
         this.waistline = waistline;
@@ -57,12 +57,12 @@ public class Skirt {
         this.size = size;
     }
 
-    public double getPrize() {
-        return prize;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrize(double prize) {
-        this.prize = prize;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getMaterial() {

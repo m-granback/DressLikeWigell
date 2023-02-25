@@ -7,8 +7,8 @@ public class Pants {
     private int id;
     private String name = "Pants";
     private String type;
-    private int size;
-    private double prize;
+    private String size = "One size fits all";
+    private double price = 59.99d;
     private String material;
     private String color;
     private String fit;
@@ -20,12 +20,12 @@ public class Pants {
         propertyChangeSupport.firePropertyChange("Pants are being prepared",null,null);
     }
 
-    public Pants(int id, String name, String type, int size, double prize, String material, String color, String fit, String length) {
+    public Pants(int id, String name, String type, String size, double price, String material, String color, String fit, String length) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.size = size;
-        this.prize = prize;
+        this.price = price;
         this.material = material;
         this.color = color;
         this.fit = fit;
@@ -59,20 +59,20 @@ public class Pants {
         this.type = type;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
-    public double getPrize() {
-        return prize;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrize(double prize) {
-        this.prize = prize;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getMaterial() {

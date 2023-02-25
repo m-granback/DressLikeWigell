@@ -3,8 +3,8 @@ package org.example.model.clothes;
 public class TShirt {
     private int id;
     private String name = "TShirt";
-    private String size;
-    private double prize;
+    private String size = "One size fits all";
+    private double price = 29.99d;
     private String material;
     private String color;
     private String sleeves;
@@ -13,11 +13,11 @@ public class TShirt {
     public TShirt() {
     }
 
-    public TShirt(int id, String name, String size, double prize, String material, String color, String sleeves, String neck) {
+    public TShirt(int id, String name, String size, double price, String material, String color, String sleeves, String neck) {
         this.id = id;
         this.name = name;
         this.size = size;
-        this.prize = prize;
+        this.price = price;
         this.material = material;
         this.color = color;
         this.sleeves = sleeves;
@@ -48,12 +48,12 @@ public class TShirt {
         this.size = size;
     }
 
-    public double getPrize() {
-        return prize;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrize(double prize) {
-        this.prize = prize;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getMaterial() {
