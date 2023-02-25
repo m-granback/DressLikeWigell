@@ -2,7 +2,7 @@ package org.example.model.clothes;
 
 public class TShirt {
     private int id;
-    private String name;
+    private String name = "TShirt";
     private String size;
     private double prize;
     private String material;

@@ -65,13 +65,15 @@ public class ControllerConsole {
         System.out.print(
                 "Please select sleeves\n" +
                         "[a] Long\n" +
-                        "[b] Short\n" +
+                        "[b] Three quarters\n" +
+                        "[c] Short\n" +
                         "Choice: ");
         String sleeves = scanner.nextLine();
         System.out.print(
                 "Please select neck\n" +
                         "[a] Tight\n" +
-                        "[b] Loose\n" +
+                        "[b] Regular\n" +
+                        "[c] Loose\n" +
                         "Choice: ");
         String neck = scanner.nextLine();
         makeTShirt(size, material, color, sleeves, neck);
@@ -86,14 +88,16 @@ public class ControllerConsole {
         Scanner scanner = new Scanner(System.in);
         System.out.print(
                 "Please select waistline\n" +
-                        "[a] Low cut\n" +
-                        "[b] Over belly\n" +
+                        "[a] Extra low cut\n" +
+                        "[b] Low cut\n" +
+                        "[c] Over belly\n" +
                         "Choice: ");
         String waistline = scanner.nextLine();
         System.out.print(
                 "Please select pattern\n" +
                         "[a] Dots\n" +
                         "[b] Stripes\n" +
+                        "[c] Solid color\n" +
                         "Choice: ");
         String pattern = scanner.nextLine();
         makeSkirt(size, material, color, waistline, pattern);
@@ -115,13 +119,15 @@ public class ControllerConsole {
         System.out.print(
                 "Please select fit\n" +
                         "[a] Slim fit\n" +
-                        "[b] Loose\n" +
+                        "[b] Tight\n" +
+                        "[c] Loose\n" +
                         "Choice: ");
         String fit = scanner.nextLine();
         System.out.print(
                 "Please select length\n" +
-                        "[a] Shorts\n" +
+                        "[a] Shorts length\n" +
                         "[b] Full length\n" +
+                        "[c] Extra long (folded up)" +
                         "Choice: ");
         String length = scanner.nextLine();
         makePants(size, material, color, fit, length);
