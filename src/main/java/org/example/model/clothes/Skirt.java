@@ -6,13 +6,13 @@ import java.beans.PropertyChangeSupport;
 public class Skirt {
     private int id;
     private String name = "Skirt";
-    private String size = "One size fits all";
+    private String size;
     private double price = 39.99d;
     private String material;
     private String color;
     private String waistline;
     private String pattern;
-    private boolean done;
+    private boolean building = false;
     private PropertyChangeSupport propertyChangeSupport;
 
     public Skirt() {
@@ -97,12 +97,14 @@ public class Skirt {
         this.pattern = pattern;
     }
 
-    public boolean isDone() {
-        return done;
+    public boolean isBuilding() {
+        return building;
     }
 
-    public void setDone(boolean done) {
-        this.propertyChangeSupport.firePropertyChange("done", -1 ,0);
-        this.done = done;
+    public void setBuilding(boolean building) {
+        boolean oldValue = this.building;
+        this.building = building;
+        this.propertyChangeSupport.firePropertyChange("Skirt build attribute changed", oldValue, this.building);
+        this.building = building;
     }
 }

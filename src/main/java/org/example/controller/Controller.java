@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.model.Customer;
 import org.example.model.clothes.Pants;
-import org.example.model.clothes.Size;
 import org.example.patterns.builder.PantsBuilder;
 import org.example.view.View;
 

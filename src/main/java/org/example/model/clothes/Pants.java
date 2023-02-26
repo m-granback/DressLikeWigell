@@ -7,17 +7,17 @@ public class Pants {
     private int id;
     private String name = "Pants";
     private String type;
-    private String size = "One size fits all";
+    private String size;
     private double price = 59.99d;
     private String material;
     private String color;
     private String fit;
     private String length;
+    private boolean building = false;
     private PropertyChangeSupport propertyChangeSupport;
 
     public Pants() {
         propertyChangeSupport = new PropertyChangeSupport(this);
-        propertyChangeSupport.firePropertyChange("Pants are being prepared",null,null);
     }
 
     public Pants(int id, String name, String type, String size, double price, String material, String color, String fit, String length) {
@@ -105,5 +105,16 @@ public class Pants {
 
     public void setLength(String length) {
         this.length = length;
+    }
+
+    public boolean isBuilding() {
+        return building;
+    }
+
+    public void setBuilding(boolean building) {
+        boolean oldValue = this.building;
+        this.building = building;
+        propertyChangeSupport.firePropertyChange("Pants build attribute changed", oldValue,this.building);
+        this.building = building;
     }
 }

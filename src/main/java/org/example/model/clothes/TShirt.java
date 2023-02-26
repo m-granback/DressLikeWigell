@@ -1,16 +1,22 @@
 package org.example.model.clothes;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 public class TShirt {
     private int id;
     private String name = "TShirt";
-    private String size = "One size fits all";
+    private String size;
     private double price = 29.99d;
     private String material;
     private String color;
     private String sleeves;
     private String neck;
+    private boolean building;
+    private PropertyChangeSupport propertyChangeSupport;
 
     public TShirt() {
+        this.propertyChangeSupport = new PropertyChangeSupport(this);
     }
 
     public TShirt(int id, String name, String size, double price, String material, String color, String sleeves, String neck) {
@@ -22,6 +28,9 @@ public class TShirt {
         this.color = color;
         this.sleeves = sleeves;
         this.neck = neck;
+    }
+    public void addPropertyChangeListener(PropertyChangeListener listener){
+        this.propertyChangeSupport.addPropertyChangeListener(listener);
     }
 
     public int getId() {
@@ -87,5 +96,16 @@ public class TShirt {
 
     public void setNeck(String neck) {
         this.neck = neck;
+    }
+
+    public boolean isBuilding() {
+        return building;
+    }
+
+    public void setBuilding(boolean building) {
+        boolean oldValue = this.building;
+        this.building = building;
+        this.propertyChangeSupport.firePropertyChange("TShirt build attribute changed", oldValue, this.building);
+        this.building = building;
     }
 }
