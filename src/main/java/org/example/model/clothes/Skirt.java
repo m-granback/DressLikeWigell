@@ -16,7 +16,7 @@ public class Skirt {
     private PropertyChangeSupport propertyChangeSupport;
 
     public Skirt() {
-        this.propertyChangeSupport = new PropertyChangeSupport(this); // är det här han menar att man behöver en boolean ?
+        this.propertyChangeSupport = new PropertyChangeSupport(this);
     }
     public void addPropertyChangeListener(PropertyChangeListener listener){
         this.propertyChangeSupport.addPropertyChangeListener(listener);
@@ -104,7 +104,6 @@ public class Skirt {
     public void setBuilding(boolean building) {
         boolean oldValue = this.building;
         this.building = building;
-        this.propertyChangeSupport.firePropertyChange("Skirt build attribute changed", oldValue, this.building);
-        this.building = building;
+        this.propertyChangeSupport.firePropertyChange("of the skirt is", oldValue, this.building);
     }
 }

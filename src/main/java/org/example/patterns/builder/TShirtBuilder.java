@@ -20,9 +20,7 @@ public class TShirtBuilder {
         tShirt.setSize(size);
         return this;
     }
-    public TShirt build(){
-        return tShirt;
-    }
+    public TShirt build(){return tShirt;}
 
     public TShirt gettShirt() {
         return tShirt;

@@ -22,10 +22,7 @@ public class PantsBuilder {
         pants.setFit(fit);
         return this;
     }
-    public Pants build(){
-        // Check whether all data needed is set
-        return pants;
-    }
+    public Pants build(){return pants;}
 
     public Pants getPants() {
         return pants;

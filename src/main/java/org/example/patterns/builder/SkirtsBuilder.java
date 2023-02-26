@@ -3,7 +3,7 @@ package org.example.patterns.builder;
 import org.example.model.clothes.Skirt;
 
 public class SkirtsBuilder {
-    Skirt skirt = new Skirt();
+    private Skirt skirt = new Skirt();
     public SkirtsBuilder setMaterial(String material){
         skirt.setMaterial(material);
         return this;
@@ -20,9 +20,7 @@ public class SkirtsBuilder {
         skirt.setSize(size);
         return this;
     }
-    public Skirt build(){
-        return skirt;
-    }
+    public Skirt build(){return skirt;}
 
     public Skirt getSkirt() {
         return skirt;

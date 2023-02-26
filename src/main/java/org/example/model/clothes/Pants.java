@@ -114,7 +114,6 @@ public class Pants {
     public void setBuilding(boolean building) {
         boolean oldValue = this.building;
         this.building = building;
-        propertyChangeSupport.firePropertyChange("Pants build attribute changed", oldValue,this.building);
-        this.building = building;
+        propertyChangeSupport.firePropertyChange("of the pair of pants is", oldValue,this.building);
     }
 }
