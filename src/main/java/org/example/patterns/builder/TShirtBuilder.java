@@ -3,9 +3,7 @@ package org.example.patterns.builder;
 import org.example.model.clothes.TShirt;
 
 public class TShirtBuilder {
-    private TShirt tShirt;
-    public TShirtBuilder() {
-    }
+    private TShirt tShirt = new TShirt();
     public TShirtBuilder setMaterial(String material){
         tShirt.setMaterial(material);
         return this;
@@ -24,5 +22,13 @@ public class TShirtBuilder {
     }
     public TShirt build(){
         return tShirt;
+    }
+
+    public TShirt gettShirt() {
+        return tShirt;
+    }
+
+    public void settShirt(TShirt tShirt) {
+        this.tShirt = tShirt;
     }
 }

@@ -48,7 +48,7 @@ public class Controller implements PropertyChangeListener {
     public void customerOrder(String clothes){
         switch(clothes){
             case "pants":
-                PantsBuilder pantsBuilder = new PantsBuilder(new Pants());
+                PantsBuilder pantsBuilder = new PantsBuilder();
                 break;
             case "tshirt":
                 break;

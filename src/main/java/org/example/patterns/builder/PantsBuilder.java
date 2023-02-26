@@ -5,15 +5,7 @@ import org.example.model.clothes.Pants;
 import java.beans.PropertyChangeSupport;
 
 public class PantsBuilder {
-    private PropertyChangeSupport propertyChangeSupport;
-    private Pants pants;
-    public PantsBuilder(){
-
-    }
-    public PantsBuilder(Pants pants){
-        this.pants = pants;
-        propertyChangeSupport = new PropertyChangeSupport(this);
-    }
+    private Pants pants = new Pants();
     public PantsBuilder setSize(String size){
         pants.setSize(size);
         return this;
@@ -33,5 +25,13 @@ public class PantsBuilder {
     public Pants build(){
         // Check whether all data needed is set
         return pants;
+    }
+
+    public Pants getPants() {
+        return pants;
+    }
+
+    public void setPants(Pants pants) {
+        this.pants = pants;
     }
 }

@@ -84,10 +84,13 @@ public class ControllerConsole {
 
     private void makeTShirt(String size, String material, String color, String sleeves, String neck) {
         TShirtBuilder tShirtBuilder = new TShirtBuilder();
+        tShirtBuilder.gettShirt().addPropertyChangeListener(ceoObserver);
+        tShirtBuilder.gettShirt().setBuilding(true);
         TShirt uniqueTShirt = tShirtBuilder.setSize(size).setMaterial(material).setSleeves(sleeves).setNeck(neck).build();
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         factorizePipeline.addFactorizeCommand(new ColorCommand(color));
         uniqueTShirt = factorizePipeline.performAction(uniqueTShirt);
+        uniqueTShirt.setBuilding(false);
     }
 
     private void skirtSpecifics(String size, String material, String color) {
@@ -112,10 +115,12 @@ public class ControllerConsole {
     private void makeSkirt(String size, String material, String color, String waistline, String pattern) {
         // All information necessary for the garment is gathered
         SkirtsBuilder skirtsBuilder = new SkirtsBuilder();
+        skirtsBuilder.getSkirt().addPropertyChangeListener(ceoObserver);
         Skirt uniqueSkirt = skirtsBuilder.setSize(size).setMaterial(material).setWaistline(waistline).setPattern(pattern).build();
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         factorizePipeline.addFactorizeCommand(new ColorCommand(color));
         uniqueSkirt = factorizePipeline.performAction(uniqueSkirt);
+        uniqueSkirt.setBuilding(false);
         //--------------------------------------------------------------------------------------------------> Plagg klart
     }
 
@@ -147,11 +152,13 @@ public class ControllerConsole {
 
     private void makePants(String size, String material, String color, String type, String fit, String length) {
         PantsBuilder pantsBuilder = new PantsBuilder();
+        pantsBuilder.getPants().addPropertyChangeListener(ceoObserver);
         Pants uniquePants = pantsBuilder.setSize(size).setMaterial(material).setType(type).setFit(fit).build();
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         factorizePipeline.addFactorizeCommand(new LengthCutCommand(length));
         factorizePipeline.addFactorizeCommand(new ColorCommand(color));
         uniquePants = factorizePipeline.performAction(uniquePants);
+        uniquePants.setBuilding(false);
     }
 
 

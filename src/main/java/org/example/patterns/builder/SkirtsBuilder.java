@@ -24,4 +24,11 @@ public class SkirtsBuilder {
         return skirt;
     }
 
+    public Skirt getSkirt() {
+        return skirt;
+    }
+
+    public void setSkirt(Skirt skirt) {
+        this.skirt = skirt;
+    }
 }
