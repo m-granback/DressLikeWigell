@@ -10,7 +10,8 @@ public class Customer {
         System.out.println("Customer created");
     }
 
-    public Customer(String name, String address, String email) {
+    public Customer(int id, String name, String address, String email) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.email = email;

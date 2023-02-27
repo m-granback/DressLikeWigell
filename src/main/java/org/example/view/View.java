@@ -10,11 +10,10 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import org.example.controller.Controller;
-import org.example.model.Customer;
+import org.example.controller.ControllerGUI;
 
 public class View extends Application {
-    private Controller myController = new Controller();
+    private ControllerGUI myControllerGUI = new ControllerGUI();
     private final double WIDTH = 700;
     private final double HEIGHT = 500;
     private AnchorPane content;
@@ -25,8 +24,8 @@ public class View extends Application {
     public View() {
     }
 
-    public View(Controller myController) {
-        this.myController = myController;
+    public View(ControllerGUI myControllerGUI) {
+        this.myControllerGUI = myControllerGUI;
 //        myController.setMyViewer(this);
     }
 
@@ -155,7 +154,7 @@ public class View extends Application {
         goShopButton.setLayoutX((WIDTH/2)-50);
         goShopButton.setLayoutY(HEIGHT/2+60);
         goShopButton.setOnAction(e->{
-            storeCustomerInfo(nameTextField.getText(), addressTextField.getText(), emailTextField.getText());
+//            storeCustomerInfo(nameTextField.getText(), addressTextField.getText(), emailTextField.getText());
         });
 //        namesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 //        namesColumn.setPrefWidth(195);
@@ -176,13 +175,13 @@ public class View extends Application {
         stage.show();
     }
 
-    private void storeCustomerInfo(String name, String address, String email) {
+/*    private void storeCustomerInfo(String name, String address, String email) {
         if(!name.equals("") && !address.equals("") && !email.equals("")) {
             leftPane.setEffect(null);
             loginPane.setVisible(false);
             myController.setCurrentCustomer(new Customer(name, address, email));
         }
-    }
+    }*/
 
 
 /*    private void loadCustomers(TableView<Customer> tableView) {
@@ -193,12 +192,12 @@ public class View extends Application {
         launch(args);
     }
 
-    public Controller getMyController() {
-        return myController;
+    public ControllerGUI getMyController() {
+        return myControllerGUI;
     }
 
-    public void setMyController(Controller myController) {
-        this.myController = myController;
+    public void setMyController(ControllerGUI myControllerGUI) {
+        this.myControllerGUI = myControllerGUI;
     }
 
     public double getWIDTH() {

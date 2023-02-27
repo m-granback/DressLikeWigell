@@ -4,7 +4,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class TShirt {
-    private int id;
+    private int id = 105;
     private String name = "TShirt";
     private String size;
     private double price = 29.99d;
@@ -19,11 +19,8 @@ public class TShirt {
         this.propertyChangeSupport = new PropertyChangeSupport(this);
     }
 
-    public TShirt(int id, String name, String size, double price, String material, String color, String sleeves, String neck) {
-        this.id = id;
-        this.name = name;
+    public TShirt(String size, String material, String color, String sleeves, String neck) {
         this.size = size;
-        this.price = price;
         this.material = material;
         this.color = color;
         this.sleeves = sleeves;

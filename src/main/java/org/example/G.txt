@@ -1,3 +1,5 @@
+//todo skapa en order, för att kunna göra flera beställningar samtidigt
+
 Affärsobjekt:
 	Customer, CEO, Pants, TShirt, Skirt
 
