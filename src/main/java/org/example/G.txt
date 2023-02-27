@@ -66,3 +66,7 @@ Tips från Tomas:
 	Observermönstret -> lägg till en boolean "done" i affärsobjekten, så kan man toggla den fram och tillbaks
 	mellan true och false, och i settern för den boolean kan man trigga observermönstret.
 	Blanda inte in en massa arv.
+
+    Jag blev precis uppmärksammad på att implementeringen av size inte finns med i skapandet av klädesplagg.
+    För att inte göra så att alla ev behöver bygga om stora delar av projektet så ser jag gärna att ni lägger
+    det valet som en sista punkt i command mönstret. Dvs som steg 6 för pants och steg 5 för T-shirt och Skirt.

@@ -104,6 +104,6 @@ public class Skirt {
     public void setBuilding(boolean building) {
         boolean oldValue = this.building;
         this.building = building;
-        this.propertyChangeSupport.firePropertyChange("of the skirt is", oldValue, this.building);
+        this.propertyChangeSupport.firePropertyChange("of the skirt ", oldValue, this.building);
     }
 }

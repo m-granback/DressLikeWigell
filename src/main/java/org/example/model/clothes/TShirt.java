@@ -102,6 +102,6 @@ public class TShirt {
     public void setBuilding(boolean building) {
         boolean oldValue = this.building;
         this.building = building;
-        this.propertyChangeSupport.firePropertyChange("of the shirt is", oldValue, this.building);
+        this.propertyChangeSupport.firePropertyChange("of the shirt ", oldValue, this.building);
     }
 }

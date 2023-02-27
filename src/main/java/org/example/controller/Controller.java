@@ -5,6 +5,7 @@ import org.example.model.clothes.Pants;
 import org.example.model.clothes.Skirt;
 import org.example.model.clothes.TShirt;
 import org.example.model.wigellStore.Order;
+import org.example.model.wigellStore.Receipt;
 import org.example.patterns.builder.PantsBuilder;
 import org.example.patterns.builder.SkirtsBuilder;
 import org.example.patterns.builder.TShirtBuilder;
@@ -51,7 +52,7 @@ public class Controller {
         for(TShirt tShirt: currentOrder.gettShirtsSpecifications()){
             makeTShirt(tShirt.getSize(), tShirt.getMaterial(), tShirt.getColor(),tShirt.getSleeves(),tShirt.getNeck());
         }
-        showReceipt();
+        new Receipt().showReceipt(currentOrder, currentCustomer);
     }
     private void productSpecification(){
         Scanner scanner = new Scanner(System.in);
@@ -179,7 +180,7 @@ public class Controller {
 
     private void wigellsLogoSign(){
         System.out.println("\033[1;33m╔══════════════════════════╗");
-        System.out.println("║ \033[0;95mWigells clothing factory\033[1;33m ║");
+        System.out.println("║ \033[1;95mWigells clothing factory\033[1;33m ║─►\033[0;33mClothes-on-demand\033[1;33m");
         System.out.println("╚══════════════════════════╝");
     }
     private void drawSeparator(){
@@ -205,7 +206,7 @@ public class Controller {
         currentOrder = new Order(wigellOrderId++, currentCustomer);
         productSpecification();
     }
-    private void showReceipt(){
+/*    private void showReceipt(){
         System.out.print(
                 "╔═══════════════════════════════════════════" +
                         "\n║ ₩ Receipt for customer id " + currentCustomer.getId() +
@@ -250,7 +251,7 @@ public class Controller {
                 "║ Address: " + currentCustomer.getAddress() + "\n" +
                 "║ Email: " + currentCustomer.getEmail() + "\n" +
                 "╚═══════════════════════════════════════════\n");
-    }
+    }*/
     private void showReceipt(Pants pants){
         System.out.print(
                 "╔═══════════════════════════════════════════" +
