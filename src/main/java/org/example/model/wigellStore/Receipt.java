@@ -33,28 +33,28 @@ public class Receipt {
             price += skirt.getPrice();
             System.out.println("╟───────────────────────────────────────────────₩");
             System.out.print(
-                    "║ Article# " + skirt.getId() + "\n" +
-                    "║   \033[0;32m" + skirt.getName() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Material " + skirt.getMaterial() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Size " + skirt.getSize() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Color " + skirt.getColor() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Waistline " + skirt.getWaistline() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Pattern " + skirt.getPattern() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Price $" + skirt.getPrice() + "\033[0;34m\n"
+                    "║ Article# " + skirt.getId() + "\033[1;32m\t" + skirt.getName() + "\033[0;34m\n" +
+                    "║\n" +
+                    "╟─◄Material►\t\033[0;32m" + skirt.getMaterial() + "\033[0;34m\n" +
+                    "╟─◄Size►\t\t\033[0;32m" + skirt.getSize() + "\033[0;34m\n" +
+                    "╟─◄Color►\t\t\033[0;32m" + skirt.getColor() + "\033[0;34m\n" +
+                    "╟─◄Waistline►\t\033[0;32m" + skirt.getWaistline() + "\033[0;34m\n" +
+                    "╟─◄Pattern►\t\t\033[0;32m" + skirt.getPattern() + "\033[0;34m\n" +
+                    "╟─◄Price►\t\t\033[0;32m$" + skirt.getPrice() + "\033[0;34m\n"
             );
         }
         for(TShirt tShirt: currentOrder.gettShirtsSpecifications()){
             price += tShirt.getPrice();
             System.out.println("╟───────────────────────────────────────────────₩");
             System.out.print(
-                    "║ Article# " + tShirt.getId() + "\n" +
-                    "║   \033[0;32m" + tShirt.getName() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Material " + tShirt.getMaterial() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Size " + tShirt.getSize() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Color " + tShirt.getColor() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Sleeves " + tShirt.getSleeves() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Neck " + tShirt.getNeck() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Price $" + tShirt.getPrice() + "\033[0;34m\n"
+                    "║ Article# " + tShirt.getId() + "\033[1;32m\t" + tShirt.getName() +"\033[0;34m\n" +
+                    "║\n" +
+                    "╟─◄Material►\t\033[0;32m" + tShirt.getMaterial() + "\033[0;34m\n" +
+                    "╟─◄Size►\t\t\033[0;32m" + tShirt.getSize() + "\033[0;34m\n" +
+                    "╟─◄Color►\t\t\033[0;32m" + tShirt.getColor() + "\033[0;34m\n" +
+                    "╟─◄Sleeves►\t\t\033[0;32m" + tShirt.getSleeves() + "\033[0;34m\n" +
+                    "╟─◄Neck►\t\t\033[0;32m" + tShirt.getNeck() + "\033[0;34m\n" +
+                    "╟─◄Price►\t\t\033[0;32m$" + tShirt.getPrice() + "\033[0;34m\n"
             );
         }
         System.out.println("╟───────────────────────────────────────────────₩");
