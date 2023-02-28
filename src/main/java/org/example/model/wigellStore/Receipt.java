@@ -18,7 +18,7 @@ public class Receipt {
             price += pants.getPrice();
             System.out.println("╟───────────────────────────────────────────────₩");
             System.out.print(
-                    "║ Article# " + pants.getId() + "\033[1;32m\t" + pants.getName() + "\033[0;34m\n" +
+                    "╟◄Article► #" + pants.getId() + "\033[1;32m\t" + pants.getName() + "\033[0;34m\n" +
                     "║\n" +
                     "╟─◄Material►\t\033[0;32m" + pants.getMaterial() + "\033[0;34m\n" +
                     "╟─◄Size►\t\t\033[0;32m" + pants.getSize() + "\033[0;34m\n" +
@@ -33,7 +33,7 @@ public class Receipt {
             price += skirt.getPrice();
             System.out.println("╟───────────────────────────────────────────────₩");
             System.out.print(
-                    "║ Article# " + skirt.getId() + "\033[1;32m\t" + skirt.getName() + "\033[0;34m\n" +
+                    "╟◄Article► #" + skirt.getId() + "\033[1;32m\t" + skirt.getName() + "\033[0;34m\n" +
                     "║\n" +
                     "╟─◄Material►\t\033[0;32m" + skirt.getMaterial() + "\033[0;34m\n" +
                     "╟─◄Size►\t\t\033[0;32m" + skirt.getSize() + "\033[0;34m\n" +
@@ -47,7 +47,7 @@ public class Receipt {
             price += tShirt.getPrice();
             System.out.println("╟───────────────────────────────────────────────₩");
             System.out.print(
-                    "║ Article# " + tShirt.getId() + "\033[1;32m\t" + tShirt.getName() +"\033[0;34m\n" +
+                    "╟◄Article► #" + tShirt.getId() + "\033[1;32m\t" + tShirt.getName() +"\033[0;34m\n" +
                     "║\n" +
                     "╟─◄Material►\t\033[0;32m" + tShirt.getMaterial() + "\033[0;34m\n" +
                     "╟─◄Size►\t\t\033[0;32m" + tShirt.getSize() + "\033[0;34m\n" +
@@ -60,7 +60,7 @@ public class Receipt {
         System.out.println("╟───────────────────────────────────────────────₩");
         System.out.printf("╟─◄Price total►\t\033[0;31m$%.2f\033[0;34m\n", price);
         System.out.print("╟───────────────────────────────────────────────₩\n" +
-                "║ Shipping address\n" +
+                "╟◄Shipping address►\n" +
                 "╟─◄Name►\033[1;33m\t\t" + currentCustomer.getName() + "\033[0;34m\n" +
                 "╟─◄Address►\033[1;33m\t\t" + currentCustomer.getAddress() + "\033[0;34m\n" +
                 "╟─◄Email►\033[1;33m\t\t" + currentCustomer.getEmail() + "\033[0;34m\n" +
