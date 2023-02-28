@@ -18,15 +18,15 @@ public class Receipt {
             price += pants.getPrice();
             System.out.println("╟───────────────────────────────────────────────₩");
             System.out.print(
-                    "║ Article# " + pants.getId() + "\n" +
-                    "║   \033[0;32m" + pants.getName() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Material " + pants.getMaterial() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Size " + pants.getSize() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Type " + pants.getType() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Color " + pants.getColor() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Fit " + pants.getFit() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Length " + pants.getLength() + "\033[0;34m\n" +
-                    "║ ●\033[0;32m Price $" + pants.getPrice() + "\033[0;34m\n"
+                    "║ Article# " + pants.getId() + "\033[1;32m\t" + pants.getName() + "\033[0;34m\n" +
+                    "║\n" +
+                    "╟─◄Material►\t\033[0;32m" + pants.getMaterial() + "\033[0;34m\n" +
+                    "╟─◄Size►\t\t\033[0;32m" + pants.getSize() + "\033[0;34m\n" +
+                    "╟─◄Type►\t\t\033[0;32m" + pants.getType() + "\033[0;34m\n" +
+                    "╟─◄Color►\t\t\033[0;32m" + pants.getColor() + "\033[0;34m\n" +
+                    "╟─◄Fit►\t\t\t\033[0;32m" + pants.getFit() + "\033[0;34m\n" +
+                    "╟─◄Length►\t\t\033[0;32m" + pants.getLength() + "\033[0;34m\n" +
+                    "╟─◄Price►\t\t\033[0;32m$" + pants.getPrice() + "\033[0;34m\n"
             );
         }
         for(Skirt skirt: currentOrder.getSkirtsSpecifications()){
@@ -58,12 +58,12 @@ public class Receipt {
             );
         }
         System.out.println("╟───────────────────────────────────────────────₩");
-        System.out.println("║ Price Total \033[0;31m$" + price + "\033[0;34m");
+        System.out.printf("╟─◄Price total►\t\033[0;31m$%.2f\033[0;34m\n", price);
         System.out.print("╟───────────────────────────────────────────────₩\n" +
                 "║ Shipping address\n" +
-                "║ Name: \033[1;33m" + currentCustomer.getName() + "\033[0;34m\n" +
-                "║ Address: \033[1;33m" + currentCustomer.getAddress() + "\033[0;34m\n" +
-                "║ Email: \033[1;33m" + currentCustomer.getEmail() + "\033[0;34m\n" +
+                "╟─◄Name►\033[1;33m\t\t" + currentCustomer.getName() + "\033[0;34m\n" +
+                "╟─◄Address►\033[1;33m\t\t" + currentCustomer.getAddress() + "\033[0;34m\n" +
+                "╟─◄Email►\033[1;33m\t\t" + currentCustomer.getEmail() + "\033[0;34m\n" +
                 "╚════════════════════════════════════════════════\n");
     }
 }

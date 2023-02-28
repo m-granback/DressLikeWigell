@@ -36,7 +36,7 @@ public class Controller {
     private void askUserIfDoneShopping(){
         Scanner scanner = new Scanner(System.in);
         drawSeparator();
-        System.out.println("Done shopping?\n[1] Yes\n[2] No, I want to shop more\n");
+        System.out.print("\033[0;31mDone shopping?\033[0;33m\n[1] Yes\n[2] No, I want to shop more\nChoice: ");
         if(scanner.nextInt() == 1)
             checkout();
         else
@@ -57,19 +57,19 @@ public class Controller {
     private void productSpecification(){
         Scanner scanner = new Scanner(System.in);
         drawSeparator();
-        System.out.println("Please select garment:");
+        System.out.println("\033[0;93mPlease select garment:\033[0;33m");
         showMenuFor(mappings.getGarmentMapping());
         String garment = mappings.getGarmentMapping().get(scanner.nextInt());
         drawSeparator();
-        System.out.println("Please select size: ");
+        System.out.println("\033[0;93mPlease select size:\033[0;33m");
         showMenuFor(mappings.getSizeMapping());
         String size = mappings.getSizeMapping().get(scanner.nextInt());
         drawSeparator();
-        System.out.println("Please select material: ");
+        System.out.println("\033[0;93mPlease select material:\033[0;33m");
         showMenuFor(mappings.getMaterialMapping());
         String material = mappings.getMaterialMapping().get(scanner.nextInt());
         drawSeparator();
-        System.out.println("Please select color: ");
+        System.out.println("\033[0;93mPlease select color:\033[0;33m");
         showMenuFor(mappings.getColorMapping());
         String color = mappings.getColorMapping().get(scanner.nextInt());
         switch (garment){
@@ -86,20 +86,18 @@ public class Controller {
                 break;
         }
     }
-
     private void tShirtSpecifics(String size, String material, String color) {
         Scanner scanner = new Scanner(System.in);
         drawSeparator();
-        System.out.println("Please select sleeves: ");
+        System.out.println("\033[0;93mPlease select sleeves:\033[0;33m");
         showMenuFor(mappings.getSleevesMapping());
         String sleeves = mappings.getSleevesMapping().get(scanner.nextInt());
         drawSeparator();
-        System.out.println("Please select neck");
+        System.out.println("\033[0;93mPlease select neck:\033[0;33m");
         showMenuFor(mappings.getNeckMapping());
         String neck = mappings.getNeckMapping().get(scanner.nextInt());
         currentOrder.addToOrder(new TShirt(size, material, color, sleeves, neck));
         askUserIfDoneShopping();
-//        makeTShirt(size, material, color, sleeves, neck);
     }
 
     private void makeTShirt(String size, String material, String color, String sleeves, String neck) {
@@ -112,26 +110,23 @@ public class Controller {
         uniqueTShirt = factorizePipeline.performAction(uniqueTShirt);
         uniqueTShirt.setId(wigellOrderId++);
         uniqueTShirt.setBuilding(false);
-//        showReceipt(uniqueTShirt);
     }
 
     private void skirtSpecifics(String size, String material, String color) {
         Scanner scanner = new Scanner(System.in);
         drawSeparator();
-        System.out.println("Please select waistline: ");
+        System.out.println("\033[0;93mPlease select waistline:\033[0;33m");
         showMenuFor(mappings.getWaistlineMapping());
         String waistline = mappings.getWaistlineMapping().get(scanner.nextInt());
         drawSeparator();
-        System.out.println("Please select pattern: ");
+        System.out.println("\033[0;93mPlease select pattern:\033[0;33m");
         showMenuFor(mappings.getPatternMapping());
         String pattern = mappings.getPatternMapping().get(scanner.nextInt());
         currentOrder.addToOrder(new Skirt(size, material, color, waistline, pattern));
         askUserIfDoneShopping();
-//        makeSkirt(size, material, color, waistline, pattern);
     }
 
     private void makeSkirt(String size, String material, String color, String waistline, String pattern) {
-        // All information necessary for the garment is gathered
         SkirtsBuilder skirtsBuilder = new SkirtsBuilder();
         skirtsBuilder.getSkirt().addPropertyChangeListener(ceo);
         skirtsBuilder.getSkirt().setBuilding(true);
@@ -141,27 +136,25 @@ public class Controller {
         uniqueSkirt = factorizePipeline.performAction(uniqueSkirt);
         uniqueSkirt.setId(wigellOrderId++);
         uniqueSkirt.setBuilding(false);
-//        showReceipt(uniqueSkirt);
     }
 
 
     private void pantsSpecifics(String size, String material, String color) {
         Scanner scanner = new Scanner(System.in);
         drawSeparator();
-        System.out.println("Please select fit: ");
+        System.out.println("\033[0;93mPlease select fit:\033[0;33m");
         showMenuFor(mappings.getFitMapping());
         String fit = mappings.getFitMapping().get(scanner.nextInt());
         drawSeparator();
-        System.out.println("Please select length: ");
+        System.out.println("\033[0;93mPlease select length:\033[0;33m");
         showMenuFor(mappings.getLengthMapping());
         String length = mappings.getLengthMapping().get(scanner.nextInt());
         drawSeparator();
-        System.out.println("Please select type: ");
+        System.out.println("\033[0;93mPlease select type:\033[0;33m");
         showMenuFor(mappings.getTypeMappings());
         String type = mappings.getTypeMappings().get(scanner.nextInt());
         currentOrder.addToOrder(new Pants(size, material, color, type, fit, length));
         askUserIfDoneShopping();
-//        makePants(size, material, color, type, fit, length);
     }
 
     private void makePants(String size, String material, String color, String type, String fit, String length) {
@@ -175,7 +168,6 @@ public class Controller {
         uniquePants = factorizePipeline.performAction(uniquePants);
         uniquePants.setId(wigellOrderId++);
         uniquePants.setBuilding(false);
-//        showReceipt(uniquePants);
     }
 
     private void wigellsLogoSign(){
@@ -190,7 +182,7 @@ public class Controller {
         String fullname = "";
         Scanner scanner = new Scanner(System.in);
         wigellsLogoSign();
-        System.out.print("\033[0;33m\nEnter your full name: ");
+        System.out.print("\033[0;93m\nEnter your shipping address\033[0;33m\n\nFull name:\t\t");
         boolean passed = false;
         while (!passed){
             fullname = scanner.nextLine();
@@ -198,117 +190,14 @@ public class Controller {
                 System.out.println("You must enter something");
             else passed = true;
         }
-        System.out.print("Your address: ");
+        System.out.print("Your address:\t");
         String address = scanner.nextLine();
-        System.out.print("Your email: ");
+        System.out.print("Your email:\t\t");
         String email = scanner.nextLine();
         currentCustomer = new Customer(wigellCustomerId++, fullname, address, email);
         currentOrder = new Order(wigellOrderId++, currentCustomer);
         productSpecification();
     }
-/*    private void showReceipt(){
-        System.out.print(
-                "╔═══════════════════════════════════════════" +
-                        "\n║ ₩ Receipt for customer id " + currentCustomer.getId() +
-                        ", order id " + currentOrder.getOrderId());
-        for(Pants pants: currentOrder.getPantsSpecifications()){
-            drawSeparator();
-            System.out.print("║ Product name" + pants.getName() + "\n" +
-                            "║ Product # " + pants.getId() + "\n" +
-                            "║ ● Material " + pants.getMaterial() + "\n" +
-                            "║ ● Size " + pants.getSize() + "\n" +
-                            "║ ● Type " + pants.getType() + "\n" +
-                            "║ ● Color " + pants.getColor() + "\n" +
-                            "║ ● Fit " + pants.getFit() + "\n" +
-                            "║ ● Length " + pants.getLength() + "\n"
-            );
-        }
-        for(Skirt skirt: currentOrder.getSkirtsSpecifications()){
-            drawSeparator();
-            System.out.print("║ Product name" + skirt.getName() + "\n" +
-                    "║ Product # " + skirt.getId() + "\n" +
-                    "║ ● Material " + skirt.getMaterial() + "\n" +
-                    "║ ● Size " + skirt.getSize() + "\n" +
-                    "║ ● Color " + skirt.getColor() + "\n" +
-                    "║ ● Waistline " + skirt.getWaistline() + "\n" +
-                    "║ ● Pattern " + skirt.getPattern() + "\n"
-            );
-        }
-        for(TShirt tShirt: currentOrder.gettShirtsSpecifications()){
-            drawSeparator();
-            System.out.print("║ Product name" + tShirt.getName() + "\n" +
-                    "║ Product # " + tShirt.getId() + "\n" +
-                    "║ ● Material " + tShirt.getMaterial() + "\n" +
-                    "║ ● Size " + tShirt.getSize() + "\n" +
-                    "║ ● Color " + tShirt.getColor() + "\n" +
-                    "║ ● Sleeves " + tShirt.getSleeves() + "\n" +
-                    "║ ● Neck " + tShirt.getNeck() + "\n"
-            );
-        }
-        System.out.print("╟───────────────────────────────────────────₩\n" +
-                "║ Shipping address:\n" +
-                "║ Name: " + currentCustomer.getName() + "\n" +
-                "║ Address: " + currentCustomer.getAddress() + "\n" +
-                "║ Email: " + currentCustomer.getEmail() + "\n" +
-                "╚═══════════════════════════════════════════\n");
-    }*/
-    private void showReceipt(Pants pants){
-        System.out.print(
-                "╔═══════════════════════════════════════════" +
-                "\n║ ₩ Receipt for customer " + currentCustomer.getId() +
-                " order, " + pants.getId() + "\n" +
-                "║ " + pants.getMaterial() + " " +
-                pants.getName().toLowerCase() + "\n" +
-                "║ Size " + pants.getSize() + "\n" +
-                "║ Type " + pants.getType() + "\n" +
-                "║ Color " + pants.getColor() + "\n" +
-                "║ Fit " + pants.getFit() + "\n" +
-                "║ Length " + pants.getLength() + "\n" +
-                "╟────────────────────────────────────────────\n" +
-                "║ Shipping address:\n" +
-                "║ Name: " + currentCustomer.getName() + "\n" +
-                "║ Address: " + currentCustomer.getAddress() + "\n" +
-                "║ Email: " + currentCustomer.getEmail() +
-                "\n╚═══════════════════════════════════════════\n");
-    }
-    private void showReceipt(TShirt tShirt){
-        System.out.print(
-                "╔═══════════════════════════════════════════" +
-                        "\n║ ₩ Receipt for customer " + currentCustomer.getId() +
-                        " ,order " + tShirt.getId() + "\n" +
-                        "║ " + tShirt.getMaterial() + " " +
-                        tShirt.getName().toLowerCase() + "\n" +
-                        "║ Size " + tShirt.getSize() + "\n" +
-                        "║ Sleeves " + tShirt.getSleeves() + "\n" +
-                        "║ Neck " + tShirt.getNeck() + "\n" +
-                        "║ Color " + tShirt.getColor() + "\n" +
-                        "╟────────────────────────────────────────────\n" +
-                        "║ Shipping address:\n" +
-                        "║ Name: " + currentCustomer.getName() + "\n" +
-                        "║ Address: " + currentCustomer.getAddress() + "\n" +
-                        "║ Email: " + currentCustomer.getEmail() +
-                        "\n╚═══════════════════════════════════════════\n");
-    }
-    private void showReceipt(Skirt skirt){
-        System.out.print(
-                "╔═══════════════════════════════════════════" +
-                        "\n║ ₩ Receipt for customer " + currentCustomer.getId() +
-                        " ,order " + skirt.getId() + "\n" +
-                        "║ " + skirt.getMaterial() + " " +
-                        skirt.getName().toLowerCase() + "\n" +
-                        "║ " + skirt.getName().toLowerCase() + "\n" +
-                        "║ Size " + skirt.getSize() + "\n" +
-                        "║ Type " + skirt.getWaistline() + "\n" +
-                        "║ Color " + skirt.getColor() + "\n" +
-                        "║ Fit " + skirt.getPattern() + "\n" +
-                        "╟────────────────────────────────────────────\n" +
-                        "║ Shipping address:\n" +
-                        "║ Name: " + currentCustomer.getName() + "\n" +
-                        "║ Address: " + currentCustomer.getAddress() + "\n" +
-                        "║ Email: " + currentCustomer.getEmail() +
-                        "\n╚═══════════════════════════════════════════\n");
-    }
-
     public int getWigellOrderId() {
         return wigellOrderId;
     }
