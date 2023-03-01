@@ -14,13 +14,12 @@ public class Order {
     private List<Pants> pantsSpecifications = new ArrayList<>();
     private List<Skirt> skirtsSpecifications = new ArrayList<>();
     private List<TShirt> tShirtsSpecifications = new ArrayList<>();
+
     public Order(int orderId, Customer customer){
         this.orderId = orderId;
         this.customerId = customer.getId();
     }
-    public void addToOrder(Pants pants){
-        pantsSpecifications.add(pants);
-    }
+    public void addToOrder(Pants pants){ pantsSpecifications.add(pants); }
     public void addToOrder(Skirt skirt){
         skirtsSpecifications.add(skirt);
     }
@@ -30,6 +29,7 @@ public class Order {
     public List<Pants> getPantsSpecifications() {
         return pantsSpecifications;
     }
+
     public List<Skirt> getSkirtsSpecifications() {
         return skirtsSpecifications;
     }

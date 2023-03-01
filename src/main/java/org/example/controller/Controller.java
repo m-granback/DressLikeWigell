@@ -6,6 +6,7 @@ import org.example.model.clothes.Skirt;
 import org.example.model.clothes.TShirt;
 import org.example.model.wigellStore.Order;
 import org.example.model.wigellStore.Receipt;
+import org.example.model.wigellStore.TemplateStorage;
 import org.example.patterns.builder.PantsBuilder;
 import org.example.patterns.builder.SkirtsBuilder;
 import org.example.patterns.builder.TShirtBuilder;
@@ -25,6 +26,7 @@ public class Controller {
     private CEO ceo = new CEO();
     private Customer currentCustomer;
     private Order currentOrder;
+    private TemplateStorage templateStorage = new TemplateStorage();
     private Mappings mappings = new Mappings();
     public Controller() {
 
@@ -53,8 +55,12 @@ public class Controller {
         return false;
     }
     private void checkout(){
+        while(!templateStorage.getPantsTemplates().isEmpty()){
+            Pants pantsTemplate = templateStorage.getPantsTemplates().poll();
+            makePants(pantsTemplate.getSize(), pantsTemplate.getMaterial(), pantsTemplate.getColor(), pantsTemplate.getType(), pantsTemplate.getFit(), pantsTemplate.getLength());
+        }
         for(Pants pants: currentOrder.getPantsSpecifications()){
-         makePants(pants.getSize(), pants.getMaterial(), pants.getColor(), pants.getType(), pants.getFit(), pants.getLength());
+
         }
         for(Skirt skirt: currentOrder.getSkirtsSpecifications()){
             makeSkirt(skirt.getSize(), skirt.getMaterial(), skirt.getColor(), skirt.getWaistline(), skirt.getPattern());
@@ -156,7 +162,9 @@ public class Controller {
         System.out.println("\033[0;93mPlease select type:\033[0;33m");
         selectionGarmentAttribute(mappings.getTypeMappings());
         String type = mappings.getTypeMappings().get(scanner.nextInt());
-        currentOrder.addToOrder(new Pants(size, material, color, type, fit, length));
+//        currentOrder.addToOrder(new Pants(size, material, color, type, fit, length));
+        Pants pantsTemplate = new Pants(size, material, color, type, fit, length);
+        templateStorage.addToTemplates(pantsTemplate);
     }
     private void makePants(String size, String material, String color, String type, String fit, String length) {
         PantsBuilder pantsBuilder = new PantsBuilder();
@@ -169,6 +177,7 @@ public class Controller {
         factorizePipeline.addFactorizeCommand(new ColorCommand(color));
         uniquePants = factorizePipeline.performAction(uniquePants);
         uniquePants.setId(garmentId++);
+        currentOrder.addToOrder(uniquePants);
 //        uniquePants.setBuilding(false);
     }
     private void wigellsLogoSign(){
