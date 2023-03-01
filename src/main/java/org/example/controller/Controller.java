@@ -20,9 +20,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Controller {
-    private int wigellOrderId = 1000;
+    private int wigellOrderId = 1001;
     private int garmentId = 1;
-    private int wigellCustomerId = 25000;
+    private int wigellCustomerId = 25001;
     private CEO ceo = new CEO();
     private Customer currentCustomer;
     private Order currentOrder;
@@ -59,14 +59,13 @@ public class Controller {
             Pants pantsTemplate = templateStorage.getPantsTemplates().poll();
             makePants(pantsTemplate.getSize(), pantsTemplate.getMaterial(), pantsTemplate.getColor(), pantsTemplate.getType(), pantsTemplate.getFit(), pantsTemplate.getLength());
         }
-        for(Pants pants: currentOrder.getPantsSpecifications()){
-
+        while (!templateStorage.getSkirtTemplates().isEmpty()){
+            Skirt skirtTemplate = templateStorage.getSkirtTemplates().poll();
+            makeSkirt(skirtTemplate.getSize(), skirtTemplate.getMaterial(), skirtTemplate.getColor(), skirtTemplate.getWaistline(), skirtTemplate.getPattern());
         }
-        for(Skirt skirt: currentOrder.getSkirtsSpecifications()){
-            makeSkirt(skirt.getSize(), skirt.getMaterial(), skirt.getColor(), skirt.getWaistline(), skirt.getPattern());
-        }
-        for(TShirt tShirt: currentOrder.gettShirtsSpecifications()){
-            makeTShirt(tShirt.getSize(), tShirt.getMaterial(), tShirt.getColor(),tShirt.getSleeves(),tShirt.getNeck());
+        while (!templateStorage.gettShirtTemplates().isEmpty()){
+            TShirt tShirtTemplate = templateStorage.gettShirtTemplates().poll();
+            makeTShirt(tShirtTemplate.getSize(), tShirtTemplate.getMaterial(), tShirtTemplate.getColor(),tShirtTemplate.getSleeves(),tShirtTemplate.getNeck());
         }
         new Receipt().showReceipt(currentOrder, currentCustomer);
     }
@@ -112,18 +111,18 @@ public class Controller {
         System.out.println("\033[0;93mPlease select neck:\033[0;33m");
         selectionGarmentAttribute(mappings.getNeckMapping());
         String neck = mappings.getNeckMapping().get(scanner.nextInt());
-        currentOrder.addToOrder(new TShirt(size, material, color, sleeves, neck));
+        TShirt tShirtTemplate = new TShirt(size, material, color, sleeves, neck);
+        templateStorage.addToTemplates(tShirtTemplate);
     }
     private void makeTShirt(String size, String material, String color, String sleeves, String neck) {
         TShirtBuilder tShirtBuilder = new TShirtBuilder();
         tShirtBuilder.gettShirt().addPropertyChangeListener(ceo);
-//        tShirtBuilder.gettShirt().setBuilding(true);
         TShirt uniqueTShirt = tShirtBuilder.setSize(size).setMaterial(material).setSleeves(sleeves).setNeck(neck).build();
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         factorizePipeline.addFactorizeCommand(new ColorCommand(color));
         uniqueTShirt = factorizePipeline.performAction(uniqueTShirt);
         uniqueTShirt.setId(garmentId++);
-//        uniqueTShirt.setBuilding(false);
+        currentOrder.addToOrder(uniqueTShirt);
     }
     private void skirtSpecifics(String size, String material, String color) {
         Scanner scanner = new Scanner(System.in);
@@ -135,18 +134,18 @@ public class Controller {
         System.out.println("\033[0;93mPlease select pattern:\033[0;33m");
         selectionGarmentAttribute(mappings.getPatternMapping());
         String pattern = mappings.getPatternMapping().get(scanner.nextInt());
-        currentOrder.addToOrder(new Skirt(size, material, color, waistline, pattern));
+        Skirt skirtTemplate = new Skirt(size, material, color, waistline, pattern);
+        templateStorage.addToTemplates(skirtTemplate);
     }
     private void makeSkirt(String size, String material, String color, String waistline, String pattern) {
         SkirtsBuilder skirtsBuilder = new SkirtsBuilder();
         skirtsBuilder.getSkirt().addPropertyChangeListener(ceo);
-//        skirtsBuilder.getSkirt().setBuilding(true);
         Skirt uniqueSkirt = skirtsBuilder.setSize(size).setMaterial(material).setWaistline(waistline).setPattern(pattern).build();
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         factorizePipeline.addFactorizeCommand(new ColorCommand(color));
         uniqueSkirt = factorizePipeline.performAction(uniqueSkirt);
         uniqueSkirt.setId(garmentId++);
-//        uniqueSkirt.setBuilding(false);
+        currentOrder.addToOrder(uniqueSkirt);
     }
     private void pantsSpecifics(String size, String material, String color) {
         Scanner scanner = new Scanner(System.in);
@@ -162,15 +161,12 @@ public class Controller {
         System.out.println("\033[0;93mPlease select type:\033[0;33m");
         selectionGarmentAttribute(mappings.getTypeMappings());
         String type = mappings.getTypeMappings().get(scanner.nextInt());
-//        currentOrder.addToOrder(new Pants(size, material, color, type, fit, length));
         Pants pantsTemplate = new Pants(size, material, color, type, fit, length);
         templateStorage.addToTemplates(pantsTemplate);
     }
     private void makePants(String size, String material, String color, String type, String fit, String length) {
         PantsBuilder pantsBuilder = new PantsBuilder();
         pantsBuilder.getPants().addPropertyChangeListener(ceo);
-//        pantsBuilder.getPants().setBuilding(true);
-//        pantsBuilder.getPants().setId(garmentId++);
         Pants uniquePants = pantsBuilder.setSize(size).setMaterial(material).setType(type).setFit(fit).build();
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         factorizePipeline.addFactorizeCommand(new LengthCutCommand(length));
@@ -178,7 +174,6 @@ public class Controller {
         uniquePants = factorizePipeline.performAction(uniquePants);
         uniquePants.setId(garmentId++);
         currentOrder.addToOrder(uniquePants);
-//        uniquePants.setBuilding(false);
     }
     private void wigellsLogoSign(){
         System.out.println("\033[1;33m╔══════════════════════════╗");
