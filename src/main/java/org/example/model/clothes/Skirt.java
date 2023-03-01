@@ -21,10 +21,7 @@ public class Skirt {
         this.propertyChangeSupport.addPropertyChangeListener(listener);
     }
     public Skirt(String size, String material, String color, String waistline, String pattern) {
-        this.id = id;
-        this.name = name;
         this.size = size;
-        this.price = price;
         this.material = material;
         this.color = color;
         this.waistline = waistline;

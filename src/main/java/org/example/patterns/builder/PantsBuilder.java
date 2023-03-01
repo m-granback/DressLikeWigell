@@ -2,8 +2,6 @@ package org.example.patterns.builder;
 
 import org.example.model.clothes.Pants;
 
-import java.beans.PropertyChangeSupport;
-
 public class PantsBuilder {
     private Pants pants = new Pants();
     public PantsBuilder setSize(String size){

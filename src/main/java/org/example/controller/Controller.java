@@ -50,9 +50,7 @@ public class Controller {
         Scanner scanner = new Scanner(System.in);
         drawSeparator();
         System.out.print("\033[0;31mDone shopping?\033[0;33m\n[1] Yes\n[2] No, I want to shop more\nChoice: ");
-        if(scanner.nextInt() == 1)
-            return true;
-        return false;
+        return scanner.nextInt() == 1;
     }
     private void checkout(){
         while(!templateStorage.getPantsTemplates().isEmpty()){
