@@ -22,7 +22,10 @@ public class PantsBuilder {
         pants.setFit(fit);
         return this;
     }
-    public Pants build(){return pants;}
+    public Pants build(){
+        pants.setBuilding(true);
+        return pants;
+    }
 
     public Pants getPants() {
         return pants;
@@ -31,4 +34,5 @@ public class PantsBuilder {
     public void setPants(Pants pants) {
         this.pants = pants;
     }
+
 }

@@ -9,6 +9,9 @@ import java.util.ArrayList;
 public class FactorizePipeline {
     private ArrayList<FactorizeCommand> pipeline = new ArrayList<>();
 
+    public FactorizePipeline() {
+    }
+
     public void addFactorizeCommand(FactorizeCommand factorizeCommand) {
         pipeline.add(factorizeCommand);
     }
@@ -18,6 +21,7 @@ public class FactorizePipeline {
         for (FactorizeCommand factorizeCommand : pipeline) {
             result = factorizeCommand.performAction(result);
         }
+        result.setBuilding(false);
         return result;
     }
 
@@ -26,6 +30,7 @@ public class FactorizePipeline {
         for (FactorizeCommand factorizeCommand : pipeline) {
             result = factorizeCommand.performAction(result);
         }
+        result.setBuilding(false);
         return result;
     }
     public TShirt performAction(TShirt tShirt) {
@@ -33,6 +38,15 @@ public class FactorizePipeline {
         for (FactorizeCommand factorizeCommand : pipeline) {
             result = factorizeCommand.performAction(tShirt);
         }
+        result.setBuilding(false);
         return result;
+    }
+
+    public ArrayList<FactorizeCommand> getPipeline() {
+        return pipeline;
+    }
+
+    public void setPipeline(ArrayList<FactorizeCommand> pipeline) {
+        this.pipeline = pipeline;
     }
 }

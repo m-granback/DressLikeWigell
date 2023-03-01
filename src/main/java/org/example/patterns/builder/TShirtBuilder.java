@@ -20,7 +20,10 @@ public class TShirtBuilder {
         tShirt.setSize(size);
         return this;
     }
-    public TShirt build(){return tShirt;}
+    public TShirt build(){
+        tShirt.setBuilding(true);
+        return tShirt;
+    }
 
     public TShirt gettShirt() {
         return tShirt;
@@ -29,4 +32,5 @@ public class TShirtBuilder {
     public void settShirt(TShirt tShirt) {
         this.tShirt = tShirt;
     }
+
 }

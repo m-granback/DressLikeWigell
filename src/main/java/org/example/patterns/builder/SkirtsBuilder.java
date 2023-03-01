@@ -20,7 +20,10 @@ public class SkirtsBuilder {
         skirt.setSize(size);
         return this;
     }
-    public Skirt build(){return skirt;}
+    public Skirt build(){
+        skirt.setBuilding(true);
+        return skirt;
+    }
 
     public Skirt getSkirt() {
         return skirt;
@@ -29,4 +32,5 @@ public class SkirtsBuilder {
     public void setSkirt(Skirt skirt) {
         this.skirt = skirt;
     }
+
 }

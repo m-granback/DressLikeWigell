@@ -1,4 +1,3 @@
-//todo skapa en order, för att kunna göra flera beställningar samtidigt
 
 Affärsobjekt:
 	Customer, CEO, Pants, TShirt, Skirt
@@ -70,3 +69,5 @@ Tips från Tomas:
     Jag blev precis uppmärksammad på att implementeringen av size inte finns med i skapandet av klädesplagg.
     För att inte göra så att alla ev behöver bygga om stora delar av projektet så ser jag gärna att ni lägger
     det valet som en sista punkt i command mönstret. Dvs som steg 6 för pants och steg 5 för T-shirt och Skirt.
+
+    //todo

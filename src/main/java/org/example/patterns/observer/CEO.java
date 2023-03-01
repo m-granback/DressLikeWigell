@@ -4,6 +4,9 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class CEO implements PropertyChangeListener {
+    public CEO() {
+    }
+
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         System.out.print("\033[0;31mCEO <--> Message received: ");

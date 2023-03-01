@@ -52,4 +52,16 @@ public class Order {
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
+
+    public void setPantsSpecifications(List<Pants> pantsSpecifications) {
+        this.pantsSpecifications = pantsSpecifications;
+    }
+
+    public void setSkirtsSpecifications(List<Skirt> skirtsSpecifications) {
+        this.skirtsSpecifications = skirtsSpecifications;
+    }
+
+    public void settShirtsSpecifications(List<TShirt> tShirtsSpecifications) {
+        this.tShirtsSpecifications = tShirtsSpecifications;
+    }
 }

@@ -30,4 +30,12 @@ public class ColorCommand implements FactorizeCommand{
         System.out.println("\033[0;36m[TShirt has been colored " + decorate + "]\033[0m");
         return tShirt;
     }
+
+    public String getDecorate() {
+        return decorate;
+    }
+
+    public void setDecorate(String decorate) {
+        this.decorate = decorate;
+    }
 }

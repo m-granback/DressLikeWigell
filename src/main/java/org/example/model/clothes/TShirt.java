@@ -4,7 +4,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class TShirt {
-    private int id = 105;
+    private int id;
     private String name = "TShirt";
     private String size;
     private double price = 29.99d;
@@ -14,11 +14,9 @@ public class TShirt {
     private String neck;
     private boolean building;
     private PropertyChangeSupport propertyChangeSupport;
-
     public TShirt() {
         this.propertyChangeSupport = new PropertyChangeSupport(this);
     }
-
     public TShirt(String size, String material, String color, String sleeves, String neck) {
         this.size = size;
         this.material = material;
@@ -29,7 +27,6 @@ public class TShirt {
     public void addPropertyChangeListener(PropertyChangeListener listener){
         this.propertyChangeSupport.addPropertyChangeListener(listener);
     }
-
     public int getId() {
         return id;
     }
@@ -93,6 +90,14 @@ public class TShirt {
 
     public void setNeck(String neck) {
         this.neck = neck;
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return propertyChangeSupport;
+    }
+
+    public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {
+        this.propertyChangeSupport = propertyChangeSupport;
     }
 
     public boolean isBuilding() {

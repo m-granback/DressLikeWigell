@@ -6,6 +6,10 @@ import org.example.model.clothes.TShirt;
 
 public class LengthCutCommand implements FactorizeCommand{
     String length;
+
+    public LengthCutCommand() {
+    }
+
     public LengthCutCommand(String length){
         this.length = length;
     }
@@ -26,5 +30,13 @@ public class LengthCutCommand implements FactorizeCommand{
     public TShirt performAction(TShirt tShirt) {
         System.out.println("\033[0;36m[T-Shirt has been cut to desired length of " + length.toLowerCase() + "]\033[0m");
         return tShirt;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
     }
 }
