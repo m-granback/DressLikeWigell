@@ -29,6 +29,11 @@
             <artifactId>mockito-junit-jupiter</artifactId>
             <version>5.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>de.danielbechler</groupId>
+            <artifactId>java-object-diff</artifactId>
+            <version>0.95</version>
+        </dependency>
     </dependencies>
 
 </project>
