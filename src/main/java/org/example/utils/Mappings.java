@@ -51,7 +51,7 @@ public class Mappings {
         put(2, "Full length");
         put(3, "Extra long (folded up)");
     }};
-    public HashMap<Integer, String> typeMappings = new HashMap<>(){{
+    public HashMap<Integer, String> typeMapping = new HashMap<>(){{
         put(1, "Regular");
         put(2, "Extra pockets");
         put(3, "No pockets");
@@ -138,11 +138,11 @@ public class Mappings {
         this.lengthMapping = lengthMapping;
     }
 
-    public HashMap<Integer, String> getTypeMappings() {
-        return typeMappings;
+    public HashMap<Integer, String> getTypeMapping() {
+        return typeMapping;
     }
 
-    public void setTypeMappings(HashMap<Integer, String> typeMappings) {
-        this.typeMappings = typeMappings;
+    public void setTypeMapping(HashMap<Integer, String> typeMapping) {
+        this.typeMapping = typeMapping;
     }
 }

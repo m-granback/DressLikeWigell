@@ -8,27 +8,24 @@ import static org.junit.jupiter.api.Assertions.*;
 class PantsBuilderTest {
 
     @Test
-    void shouldReturnEqualAttributeValues() {
-        String testString1 = "aaaaa";
-        String testString2 = "bbbbb";
-        String testString3 = "ccccc";
-        String testString4 = "ddddd";
+    void shouldAlterAttributeValues() {
+        String testString = "TestString";
         PantsBuilder pantsBuilder = new PantsBuilder();
         Pants testPants;
         testPants = pantsBuilder
-                .setSize(testString1)
-                .setMaterial(testString2)
-                .setFit(testString3)
-                .setType(testString4)
+                .setSize(testString)
+                .setMaterial(testString)
+                .setFit(testString)
+                .setType(testString)
                 .build();
         boolean alike = testPants.isBuilding();
-        if(!(testPants.getSize() == testString1))
+        if(!(testPants.getSize() == testString))
             alike = false;
-        if(!(testPants.getMaterial() == testString2))
+        if(!(testPants.getMaterial() == testString))
             alike = false;
-        if(!(testPants.getFit() == testString3))
+        if(!(testPants.getFit() == testString))
             alike = false;
-        if(!(testPants.getType() == testString4))
+        if(!(testPants.getType() == testString))
             alike = false;
         assertTrue(alike);
     }
