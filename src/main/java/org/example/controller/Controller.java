@@ -17,6 +17,7 @@ import org.example.patterns.observer.CEO;
 import org.example.utils.Mappings;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Controller {
@@ -39,6 +40,24 @@ public class Controller {
             doneShopping = askUserIfDoneShopping();
         }
         checkout();
+    }
+    private int getUserInput(int numOfChoices){
+        Scanner scanner = new Scanner(System.in);
+        int userInput = 0;
+        boolean validInput = false;
+        while(!validInput){
+            try {
+                userInput = scanner.nextInt();
+                validInput = userInput > 0 && userInput <= numOfChoices;
+            if(!validInput)
+                System.out.println("Invalid choice.");
+            } catch (Exception e){
+                System.out.println("Invalid input, expected an integer.");
+                scanner = new Scanner(System.in);
+            }
+        }
+        System.out.println(userInput);
+        return userInput;
     }
     private void selectionGarmentAttribute(HashMap<Integer, String> hashMap){
         for(int i: hashMap.keySet()){
@@ -72,7 +91,8 @@ public class Controller {
         drawSeparator();
         System.out.println("\033[0;93mPlease select garment:\033[0;33m");
         selectionGarmentAttribute(mappings.getGarmentMapping());
-        String garment = mappings.getGarmentMapping().get(scanner.nextInt());
+        System.out.println(mappings.getGarmentMapping().size());
+        String garment = mappings.getGarmentMapping().get(getUserInput(mappings.getGarmentMapping().size()));
         drawSeparator();
         System.out.println("\033[0;93mPlease select size:\033[0;33m");
         selectionGarmentAttribute(mappings.getSizeMapping());
