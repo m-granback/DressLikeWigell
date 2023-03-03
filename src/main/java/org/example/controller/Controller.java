@@ -40,14 +40,14 @@ public class Controller {
         }
         checkout();
     }
-    private int getUserInput(HashMap hashMap/*int numOfChoices*/){
+    private int getUserInput(HashMap hashMap){
         Scanner scanner = new Scanner(System.in);
         int userInput = 0;
         boolean validInput = false;
         while(!validInput){
             try {
                 userInput = scanner.nextInt();
-                validInput = hashMap.containsKey(userInput);/*userInput > 0 && userInput <= numOfChoices;*/
+                validInput = hashMap.containsKey(userInput);
             if(!validInput)
                 System.out.println("Invalid choice.");
             } catch (Exception e){
@@ -85,7 +85,6 @@ public class Controller {
         new Receipt().showReceipt(currentOrder, currentCustomer);
     }
     private void productSpecification(){
-        Scanner scanner = new Scanner(System.in);
         drawSeparator();
         System.out.println("\033[0;93mPlease select garment:\033[0;33m");
         selectionFromMapping(mappings.getGarmentMapping());
@@ -117,7 +116,6 @@ public class Controller {
         }
     }
     private void tShirtSpecifics(String size, String material, String color) {
-        Scanner scanner = new Scanner(System.in);
         drawSeparator();
         System.out.println("\033[0;93mPlease select sleeves:\033[0;33m");
         selectionFromMapping(mappings.getSleevesMapping());
@@ -140,7 +138,6 @@ public class Controller {
         currentOrder.addToOrder(uniqueTShirt);
     }
     private void skirtSpecifics(String size, String material, String color) {
-        Scanner scanner = new Scanner(System.in);
         drawSeparator();
         System.out.println("\033[0;93mPlease select waistline:\033[0;33m");
         selectionFromMapping(mappings.getWaistlineMapping());
@@ -163,7 +160,6 @@ public class Controller {
         currentOrder.addToOrder(uniqueSkirt);
     }
     private void pantsSpecifics(String size, String material, String color) {
-        Scanner scanner = new Scanner(System.in);
         drawSeparator();
         System.out.println("\033[0;93mPlease select fit:\033[0;33m");
         selectionFromMapping(mappings.getFitMapping());

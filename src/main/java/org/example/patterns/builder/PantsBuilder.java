@@ -21,6 +21,14 @@ public class PantsBuilder {
         return this;
     }
     public Pants build(){
+        if(pants.getSize() == null)
+            throw new RuntimeException("Size data missing, check builder pattern");
+        if(pants.getMaterial() == null)
+            throw new RuntimeException("Material data missing, check builder pattern");
+        if(pants.getType() == null)
+            throw new RuntimeException("Type data missing, check builder pattern");
+        if(pants.getFit() == null)
+            throw new RuntimeException("Fit data missing, check builder pattern");
         pants.setBuilding(true);
         return pants;
     }

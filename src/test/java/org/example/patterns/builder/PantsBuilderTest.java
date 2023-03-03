@@ -9,24 +9,26 @@ class PantsBuilderTest {
 
     @Test
     void shouldAlterAttributeValues() {
+        /**
+         *  This test verifies that the strings fed to the builder are
+         *  being applied to the object.
+         */
         String testString = "TestString";
         PantsBuilder pantsBuilder = new PantsBuilder();
-        Pants testPants;
+        Pants testPants = new Pants();
+        assertNotEquals(testPants.getSize(), testString);
+        assertNotEquals(testPants.getMaterial(), testString);
+        assertNotEquals(testPants.getFit(), testString);
+        assertNotEquals(testPants.getType(), testString);
         testPants = pantsBuilder
                 .setSize(testString)
                 .setMaterial(testString)
                 .setFit(testString)
                 .setType(testString)
                 .build();
-        boolean alike = testPants.isBuilding();
-        if(!(testPants.getSize() == testString))
-            alike = false;
-        if(!(testPants.getMaterial() == testString))
-            alike = false;
-        if(!(testPants.getFit() == testString))
-            alike = false;
-        if(!(testPants.getType() == testString))
-            alike = false;
-        assertTrue(alike);
+        assertEquals(testPants.getSize(), testString);
+        assertEquals(testPants.getMaterial(), testString);
+        assertEquals(testPants.getFit(), testString);
+        assertEquals(testPants.getType(), testString);
     }
 }
