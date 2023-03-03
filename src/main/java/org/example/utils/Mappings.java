@@ -40,21 +40,24 @@ public class Mappings {
         put(2,"Stripes");
         put(3,"Solid");
     }};
-    // fit length type
-    public HashMap<Integer, String> fitMapping = new HashMap<>(){{
+    private HashMap<Integer, String> fitMapping = new HashMap<>(){{
         put(1,"Slim-fit");
         put(2,"Tight");
         put(3,"Loose");
     }};
-    public HashMap<Integer, String> lengthMapping = new HashMap<>(){{
+    private HashMap<Integer, String> lengthMapping = new HashMap<>(){{
         put(1, "Knee length");
         put(2, "Full length");
         put(3, "Extra long (folded up)");
     }};
-    public HashMap<Integer, String> typeMapping = new HashMap<>(){{
+    private HashMap<Integer, String> typeMapping = new HashMap<>(){{
         put(1, "Regular");
         put(2, "Extra pockets");
         put(3, "No pockets");
+    }};
+    private HashMap<Integer, String> yesNoMapping = new HashMap<>(){{
+       put(1, "Yes");
+       put(2, "No");
     }};
 
 
@@ -144,5 +147,13 @@ public class Mappings {
 
     public void setTypeMapping(HashMap<Integer, String> typeMapping) {
         this.typeMapping = typeMapping;
+    }
+
+    public HashMap<Integer, String> getYesNoMapping() {
+        return yesNoMapping;
+    }
+
+    public void setYesNoMapping(HashMap<Integer, String> yesNoMapping) {
+        this.yesNoMapping = yesNoMapping;
     }
 }

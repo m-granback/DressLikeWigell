@@ -16,7 +16,6 @@ import org.example.patterns.command.LengthCutCommand;
 import org.example.patterns.observer.CEO;
 import org.example.utils.Mappings;
 
-import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -58,17 +57,17 @@ public class Controller {
         }
         return userInput;
     }
-    private void selectionGarmentAttribute(HashMap<Integer, String> hashMap){
+    private void selectionFromMapping(HashMap<Integer, String> hashMap){
         for(int i: hashMap.keySet()){
             System.out.println("[" + i + "] " + hashMap.get(i));
         }
         System.out.print("Choice: ");
     }
     private boolean askUserIfDoneShopping(){
-        Scanner scanner = new Scanner(System.in);
         drawSeparator();
-        System.out.print("\033[0;31mDone shopping?\033[0;33m\n[1] Yes\n[2] No, I want to shop more\nChoice: ");
-        return scanner.nextInt() == 1;
+        System.out.println("\033[0;31mDone shopping?\033[0;33m");
+        selectionFromMapping(mappings.getYesNoMapping());
+        return mappings.getYesNoMapping().get(getUserInput(mappings.getYesNoMapping())).equals("Yes");
     }
     private void checkout(){
         while(!templateStorage.getPantsTemplates().isEmpty()){
@@ -89,19 +88,19 @@ public class Controller {
         Scanner scanner = new Scanner(System.in);
         drawSeparator();
         System.out.println("\033[0;93mPlease select garment:\033[0;33m");
-        selectionGarmentAttribute(mappings.getGarmentMapping());
+        selectionFromMapping(mappings.getGarmentMapping());
         String garment = mappings.getGarmentMapping().get(getUserInput(mappings.getGarmentMapping()));
         drawSeparator();
         System.out.println("\033[0;93mPlease select size:\033[0;33m");
-        selectionGarmentAttribute(mappings.getSizeMapping());
+        selectionFromMapping(mappings.getSizeMapping());
         String size = mappings.getSizeMapping().get(getUserInput(mappings.getSizeMapping()));
         drawSeparator();
         System.out.println("\033[0;93mPlease select material:\033[0;33m");
-        selectionGarmentAttribute(mappings.getMaterialMapping());
+        selectionFromMapping(mappings.getMaterialMapping());
         String material = mappings.getMaterialMapping().get(getUserInput(mappings.getMaterialMapping()));
         drawSeparator();
         System.out.println("\033[0;93mPlease select color:\033[0;33m");
-        selectionGarmentAttribute(mappings.getColorMapping());
+        selectionFromMapping(mappings.getColorMapping());
         String color = mappings.getColorMapping().get(getUserInput(mappings.getColorMapping()));
         switch (garment){
             case "Pants":
@@ -121,11 +120,11 @@ public class Controller {
         Scanner scanner = new Scanner(System.in);
         drawSeparator();
         System.out.println("\033[0;93mPlease select sleeves:\033[0;33m");
-        selectionGarmentAttribute(mappings.getSleevesMapping());
+        selectionFromMapping(mappings.getSleevesMapping());
         String sleeves = mappings.getSleevesMapping().get(getUserInput(mappings.getSleevesMapping()));
         drawSeparator();
         System.out.println("\033[0;93mPlease select neck:\033[0;33m");
-        selectionGarmentAttribute(mappings.getNeckMapping());
+        selectionFromMapping(mappings.getNeckMapping());
         String neck = mappings.getNeckMapping().get(getUserInput(mappings.getNeckMapping()));
         TShirt tShirtTemplate = new TShirt(size, material, color, sleeves, neck);
         templateStorage.addToTemplates(tShirtTemplate);
@@ -144,11 +143,11 @@ public class Controller {
         Scanner scanner = new Scanner(System.in);
         drawSeparator();
         System.out.println("\033[0;93mPlease select waistline:\033[0;33m");
-        selectionGarmentAttribute(mappings.getWaistlineMapping());
+        selectionFromMapping(mappings.getWaistlineMapping());
         String waistline = mappings.getWaistlineMapping().get(getUserInput(mappings.getWaistlineMapping()));
         drawSeparator();
         System.out.println("\033[0;93mPlease select pattern:\033[0;33m");
-        selectionGarmentAttribute(mappings.getPatternMapping());
+        selectionFromMapping(mappings.getPatternMapping());
         String pattern = mappings.getPatternMapping().get(getUserInput(mappings.getPatternMapping()));
         Skirt skirtTemplate = new Skirt(size, material, color, waistline, pattern);
         templateStorage.addToTemplates(skirtTemplate);
@@ -167,15 +166,15 @@ public class Controller {
         Scanner scanner = new Scanner(System.in);
         drawSeparator();
         System.out.println("\033[0;93mPlease select fit:\033[0;33m");
-        selectionGarmentAttribute(mappings.getFitMapping());
+        selectionFromMapping(mappings.getFitMapping());
         String fit = mappings.getFitMapping().get(getUserInput(mappings.getFitMapping()));
         drawSeparator();
         System.out.println("\033[0;93mPlease select length:\033[0;33m");
-        selectionGarmentAttribute(mappings.getLengthMapping());
+        selectionFromMapping(mappings.getLengthMapping());
         String length = mappings.getLengthMapping().get(getUserInput(mappings.getLengthMapping()));
         drawSeparator();
         System.out.println("\033[0;93mPlease select type:\033[0;33m");
-        selectionGarmentAttribute(mappings.getTypeMapping());
+        selectionFromMapping(mappings.getTypeMapping());
         String type = mappings.getTypeMapping().get(getUserInput(mappings.getTypeMapping()));
         Pants pantsTemplate = new Pants(size, material, color, type, fit, length);
         templateStorage.addToTemplates(pantsTemplate);
