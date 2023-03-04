@@ -17,7 +17,7 @@ public class Receipt {
             price += pants.getPrice();
             System.out.println("╟───────────────────────────────────────────────₩");
             System.out.print(
-                    "╟◄Article► #" + pants.getId() + "\033[1;32m\t" + pants.getName() + "\033[0;34m\n" +
+                    "╟◄Manufact► #" + pants.getId() + "\033[1;32m\t" + pants.getName() + "\033[0;34m\n" +
                     "║\n" +
                     "╟─◄Material►\t\033[0;32m" + pants.getMaterial() + "\033[0;34m\n" +
                     "╟─◄Size►\t\t\033[0;32m" + pants.getSize() + "\033[0;34m\n" +
@@ -32,7 +32,7 @@ public class Receipt {
             price += skirt.getPrice();
             System.out.println("╟───────────────────────────────────────────────₩");
             System.out.print(
-                    "╟◄Article► #" + skirt.getId() + "\033[1;32m\t" + skirt.getName() + "\033[0;34m\n" +
+                    "╟◄Manufact► #" + skirt.getId() + "\033[1;32m\t" + skirt.getName() + "\033[0;34m\n" +
                     "║\n" +
                     "╟─◄Material►\t\033[0;32m" + skirt.getMaterial() + "\033[0;34m\n" +
                     "╟─◄Size►\t\t\033[0;32m" + skirt.getSize() + "\033[0;34m\n" +
@@ -46,7 +46,7 @@ public class Receipt {
             price += tShirt.getPrice();
             System.out.println("╟───────────────────────────────────────────────₩");
             System.out.print(
-                    "╟◄Article► #" + tShirt.getId() + "\033[1;32m\t" + tShirt.getName() +"\033[0;34m\n" +
+                    "╟◄Manufact► #" + tShirt.getId() + "\033[1;32m\t" + tShirt.getName() +"\033[0;34m\n" +
                     "║\n" +
                     "╟─◄Material►\t\033[0;32m" + tShirt.getMaterial() + "\033[0;34m\n" +
                     "╟─◄Size►\t\t\033[0;32m" + tShirt.getSize() + "\033[0;34m\n" +

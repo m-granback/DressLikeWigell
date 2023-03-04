@@ -208,7 +208,7 @@ public class Controller {
             fullName = scanner.nextLine();
             validFullName = validFullNameCheck(fullName);
             if(!validFullName)
-                System.out.print("That can't be your name, try again\nFull name:\t\t");
+                System.out.print("That can't be your full name, try again\nFull name:\t\t");
         }
         return fullName;
     }
