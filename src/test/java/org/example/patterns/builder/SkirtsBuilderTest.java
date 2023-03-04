@@ -31,4 +31,24 @@ class SkirtsBuilderTest {
         assertEquals(testSkirt.getPattern(), testString);
         assertEquals(testSkirt.getWaistline(), testString);
     }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingWaistlineComponent() {
+        SkirtsBuilder skirtsBuilder = new SkirtsBuilder();
+        assertThrows(RuntimeException.class, () -> skirtsBuilder.setSize("size").setPattern("pattern").setMaterial("material").build());
+    }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingMaterialComponent() {
+        SkirtsBuilder skirtsBuilder = new SkirtsBuilder();
+        assertThrows(RuntimeException.class, ()-> skirtsBuilder.setSize("size").setWaistline("waistline").setPattern("pattern").build());
+    }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingPatternComponent(){
+        SkirtsBuilder skirtsBuilder = new SkirtsBuilder();
+        assertThrows(RuntimeException.class, ()-> skirtsBuilder.setSize("size").setWaistline("waistline").setMaterial("material").build());
+    }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingSizeComponent() {
+        SkirtsBuilder skirtsBuilder = new SkirtsBuilder();
+        assertThrows(RuntimeException.class, ()-> skirtsBuilder.setWaistline("waistline").setPattern("pattern").setMaterial("material").build());
+    }
 }

@@ -9,7 +9,6 @@ public class ColorCommand implements FactorizeCommand{
 
     public ColorCommand() {
     }
-
     public ColorCommand(String color){
         this.color = color;
     }

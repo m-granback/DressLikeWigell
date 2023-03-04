@@ -21,6 +21,14 @@ public class SkirtsBuilder {
         return this;
     }
     public Skirt build(){
+        if(skirt.getSize() == null)
+            throw new RuntimeException("Size component missing, check builder pattern");
+        if(skirt.getMaterial() == null)
+            throw new RuntimeException("Material component missing, check builder pattern");
+        if(skirt.getWaistline() == null)
+            throw new RuntimeException("Waistline component missing, check builder pattern");
+        if(skirt.getPattern() == null)
+            throw new RuntimeException("Pattern component missing, check builder pattern");
         skirt.setBuilding(true);
         return skirt;
     }

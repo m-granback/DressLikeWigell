@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class LengthCutCommandTest {
 
     @Test
-    void performAction() {
+    void shouldPerformCutActionOnPants() {
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         Pants pants = new Pants();
         String testString = "TestString";

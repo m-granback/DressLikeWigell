@@ -4,7 +4,6 @@ import org.example.model.Customer;
 import org.example.model.clothes.Pants;
 import org.example.model.clothes.Skirt;
 import org.example.model.clothes.TShirt;
-
 import java.util.Date;
 
 public class Receipt {

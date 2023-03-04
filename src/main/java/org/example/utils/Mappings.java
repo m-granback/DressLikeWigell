@@ -59,8 +59,6 @@ public class Mappings {
        put(1, "Yes");
        put(2, "No");
     }};
-
-
     public HashMap<Integer, String> getGarmentMapping() {
         return garmentMapping;
     }

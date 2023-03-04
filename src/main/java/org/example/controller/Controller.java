@@ -40,7 +40,7 @@ public class Controller {
         }
         checkout();
     }
-    private int getUserInput(HashMap hashMap){
+    private int getUserInput(HashMap<Integer, String> hashMap){
         Scanner scanner = new Scanner(System.in);
         int userInput = 0;
         boolean validInput = false;
@@ -112,7 +112,7 @@ public class Controller {
                 tShirtSpecifics(size, material, color);
                 break;
             default:
-                break;
+                throw new RuntimeException("An error occurred when fetching mappings.");
         }
     }
     private void tShirtSpecifics(String size, String material, String color) {
@@ -129,7 +129,7 @@ public class Controller {
     }
     private void makeTShirt(String size, String material, String color, String sleeves, String neck) {
         TShirtBuilder tShirtBuilder = new TShirtBuilder();
-        tShirtBuilder.gettShirt().addPropertyChangeListener(ceo);
+        tShirtBuilder.getTShirt().addPropertyChangeListener(ceo);
         TShirt uniqueTShirt = tShirtBuilder.setSize(size).setMaterial(material).setSleeves(sleeves).setNeck(neck).build();
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         factorizePipeline.addFactorizeCommand(new ColorCommand(color));
@@ -195,22 +195,50 @@ public class Controller {
     private void drawSeparator(){
         System.out.println("───────────────────────────────────────₩");
     }
+    private String stringCheck(String name){
+        if(name.split(" ").length >= 2)
+            return name;
+        throw new RuntimeException("Name format incorrect");
+    }
+    private String getValidFullName(){
+        Scanner scanner = new Scanner(System.in);
+        String fullName = "";
+        boolean validFullName = false;
+        while (!validFullName){
+            fullName = scanner.nextLine();
+            validFullName = validFullNameCheck(fullName);
+            if(!validFullName)
+                System.out.print("That can't be your name, try again\nFull name:\t\t");
+        }
+        return fullName;
+    }
+    private boolean validFullNameCheck(String fullName){
+        return fullName.split(" ").length >= 2;
+    }
+    private String getValidEmail(){
+        Scanner scanner = new Scanner(System.in);
+        String email = "";
+        boolean validEmail = false;
+        while (!validEmail){
+            email = scanner.nextLine();
+            validEmail = validEmailCheck(email);
+            if(!validEmail)
+                System.out.print("Invalid format, try again\nYour email:\t\t");
+        }
+        return email;
+    }
+    private boolean validEmailCheck(String email){
+        return email.split("@").length == 2 && email.split("@")[1].split("\\.").length >= 2;
+    }
     public void newCustomerOrder(){
-        String fullname = "";
         Scanner scanner = new Scanner(System.in);
         wigellsLogoSign();
         System.out.print("\033[0;93m\nEnter your shipping address\033[0;33m\n\nFull name:\t\t");
-        boolean passed = false;
-        while (!passed){
-            fullname = scanner.nextLine();
-            if(fullname.equals(""))
-                System.out.println("You must enter something");
-            else passed = true;
-        }
+        String fullname = getValidFullName();
         System.out.print("Your address:\t");
         String address = scanner.nextLine();
         System.out.print("Your email:\t\t");
-        String email = scanner.nextLine();
+        String email = getValidEmail();
         currentCustomer = new Customer(wigellCustomerId++, fullname, address, email);
         currentOrder = new Order(wigellOrderId++, currentCustomer);
     }

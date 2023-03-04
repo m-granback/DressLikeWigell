@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ColorCommandTest {
 
     @Test
-    void performAction() {
+    void shouldPerformColoringActionOnPants() {
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         Pants pants = new Pants();
         String testString = "TestString";

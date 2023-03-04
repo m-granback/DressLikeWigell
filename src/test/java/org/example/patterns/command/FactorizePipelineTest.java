@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FactorizePipelineTest {
 
     @Test
-    void addFactorizeCommand() {
+    void shouldAddCommandToPipeline() {
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         int sizeBeforeAdding = factorizePipeline.getPipeline().size();
         factorizePipeline.addFactorizeCommand(new ColorCommand());
@@ -16,7 +16,7 @@ class FactorizePipelineTest {
     }
 
     @Test
-    void performAction() {
+    void shouldPerformActionOnPants() {
         FactorizePipeline factorizePipeline = new FactorizePipeline();
         Pants pants = new Pants();
         String testString = "TestString";

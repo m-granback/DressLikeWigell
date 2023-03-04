@@ -9,7 +9,6 @@ public class LengthCutCommand implements FactorizeCommand{
 
     public LengthCutCommand() {
     }
-
     public LengthCutCommand(String length){
         this.length = length;
     }

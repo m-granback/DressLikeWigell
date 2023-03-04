@@ -11,7 +11,7 @@ import static org.mockito.Mockito.times;
 class ReceiptTest {
 
     @Test
-    void showReceipt() {
+    void testShowReceipt() {
         Customer customer = new Customer();
         customer.setId(1);
         Order order = new Order(1, customer);
@@ -19,6 +19,7 @@ class ReceiptTest {
         order.setCustomerId(1);
         Receipt receiptMock = mock(Receipt.class);
         doNothing().when(receiptMock).showReceipt(order,customer);
+        receiptMock.showReceipt(order, customer);
         verify(receiptMock, times(1)).showReceipt(order, customer);
     }
 }

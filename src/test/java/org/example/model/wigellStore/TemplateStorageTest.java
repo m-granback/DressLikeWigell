@@ -11,10 +11,11 @@ import static org.mockito.Mockito.times;
 class TemplateStorageTest {
 
     @Test
-    void addToTemplates() {
+    void testAddToTemplates() {
         Pants pants = new Pants();
         TemplateStorage templateStorageMock = mock(TemplateStorage.class);
-        doNothing().when(templateStorageMock).addToTemplates(pants);
+        doNothing().when(templateStorageMock).addToTemplates(new Pants());
+        templateStorageMock.addToTemplates(pants);
         verify(templateStorageMock, times(1)).addToTemplates(pants);
     }
 

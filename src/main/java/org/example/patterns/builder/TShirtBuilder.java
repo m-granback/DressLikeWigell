@@ -21,15 +21,23 @@ public class TShirtBuilder {
         return this;
     }
     public TShirt build(){
+        if(tShirt.getSize() == null)
+            throw new RuntimeException("Size component missing, check builder pattern");
+        if(tShirt.getMaterial() == null)
+            throw new RuntimeException("Material component missing, check builder pattern");
+        if(tShirt.getNeck() == null)
+            throw new RuntimeException("Neck component missing, check builder pattern");
+        if(tShirt.getSleeves() == null)
+            throw new RuntimeException("Sleeves component missing, check builder pattern");
         tShirt.setBuilding(true);
         return tShirt;
     }
 
-    public TShirt gettShirt() {
+    public TShirt getTShirt() {
         return tShirt;
     }
 
-    public void settShirt(TShirt tShirt) {
+    public void setTShirt(TShirt tShirt) {
         this.tShirt = tShirt;
     }
 

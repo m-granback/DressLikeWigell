@@ -31,4 +31,24 @@ class PantsBuilderTest {
         assertEquals(testPants.getFit(), testString);
         assertEquals(testPants.getType(), testString);
     }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingTypeComponent() {
+        PantsBuilder pantsBuilder = new PantsBuilder();
+        assertThrows(RuntimeException.class, () -> pantsBuilder.setSize("size").setFit("fit").setMaterial("material").build());
+    }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingMaterialComponent() {
+        PantsBuilder pantsBuilder = new PantsBuilder();
+        assertThrows(RuntimeException.class, ()-> pantsBuilder.setSize("size").setFit("fit").setType("Type").build());
+    }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingFitComponent(){
+        PantsBuilder pantsBuilder = new PantsBuilder();
+        assertThrows(RuntimeException.class, ()-> pantsBuilder.setSize("size").setType("type").setMaterial("material").build());
+    }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingSizeComponent() {
+        PantsBuilder pantsBuilder = new PantsBuilder();
+        assertThrows(RuntimeException.class, ()-> pantsBuilder.setType("type").setFit("fit").setMaterial("material").build());
+    }
 }

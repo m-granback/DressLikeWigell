@@ -3,7 +3,6 @@ package org.example.model.wigellStore;
 import org.example.model.clothes.Pants;
 import org.example.model.clothes.Skirt;
 import org.example.model.clothes.TShirt;
-
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 

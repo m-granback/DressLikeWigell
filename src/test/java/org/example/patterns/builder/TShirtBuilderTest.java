@@ -32,4 +32,24 @@ class TShirtBuilderTest {
         assertEquals(testtShirt.getSleeves(), testString);
         assertEquals(testtShirt.getNeck(), testString);
     }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingNeckComponent() {
+        TShirtBuilder tShirtBuilder = new TShirtBuilder();
+        assertThrows(RuntimeException.class, () -> tShirtBuilder.setSize("size").setSleeves("sleeves").setMaterial("material").build());
+    }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingMaterialComponent() {
+        TShirtBuilder tShirtBuilder = new TShirtBuilder();
+        assertThrows(RuntimeException.class, ()-> tShirtBuilder.setSize("size").setSleeves("sleeves").setNeck("neck").build());
+    }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingSleevesComponent(){
+        TShirtBuilder tShirtBuilder = new TShirtBuilder();
+        assertThrows(RuntimeException.class, ()-> tShirtBuilder.setSize("size").setNeck("neck").setMaterial("material").build());
+    }
+    @Test
+    void shouldThrowRuntimeExceptionWhenMissingSizeComponent() {
+        TShirtBuilder tShirtBuilder = new TShirtBuilder();
+        assertThrows(RuntimeException.class, ()-> tShirtBuilder.setNeck("neck").setSleeves("sleeves").setMaterial("material").build());
+    }
 }
