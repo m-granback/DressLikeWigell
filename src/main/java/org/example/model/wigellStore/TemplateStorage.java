@@ -10,7 +10,6 @@ public class TemplateStorage {
 
     public TemplateStorage() {
     }
-
     private Queue<Pants> pantsTemplates = new ConcurrentLinkedQueue<>();
     private Queue<Skirt> skirtTemplates = new ConcurrentLinkedQueue<>();
     private Queue<TShirt> tShirtTemplates = new ConcurrentLinkedQueue<>();

@@ -31,6 +31,9 @@ class PantsBuilderTest {
         assertEquals(testPants.getFit(), testString);
         assertEquals(testPants.getType(), testString);
     }
+    /**
+     *  No testing needed for incoming strings to be correct, they are taken from Mappings class.
+     */
     @Test
     void shouldThrowRuntimeExceptionWhenMissingTypeComponent() {
         PantsBuilder pantsBuilder = new PantsBuilder();

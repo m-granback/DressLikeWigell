@@ -32,6 +32,9 @@ class TShirtBuilderTest {
         assertEquals(testtShirt.getSleeves(), testString);
         assertEquals(testtShirt.getNeck(), testString);
     }
+    /**
+     *  No testing needed for incoming strings to be correct, they are taken from Mappings class.
+     */
     @Test
     void shouldThrowRuntimeExceptionWhenMissingNeckComponent() {
         TShirtBuilder tShirtBuilder = new TShirtBuilder();

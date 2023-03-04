@@ -31,6 +31,10 @@ class SkirtsBuilderTest {
         assertEquals(testSkirt.getPattern(), testString);
         assertEquals(testSkirt.getWaistline(), testString);
     }
+
+    /**
+     *  No testing needed for incoming strings to be correct, they are taken from Mappings class.
+     */
     @Test
     void shouldThrowRuntimeExceptionWhenMissingWaistlineComponent() {
         SkirtsBuilder skirtsBuilder = new SkirtsBuilder();
